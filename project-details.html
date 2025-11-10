@@ -461,7 +461,7 @@
     let SomeHTML = '';
     async function loadProject(projectname) {
     try {
-        const res = await fetch(`/jsons/${projectname}.json`);
+        const res = await fetch(`./jsons/${projectname}.json`);
         if(!res.ok) {
             throw new Error('json response was not ok ' + res.statusText);
         }
@@ -584,4 +584,5 @@
 }
 loadProject(projectname);
 </script>
+
 </html>
