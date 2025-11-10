@@ -1,0 +1,106 @@
+{
+  "projectHeader": {
+    "title": "iCARS - Car Rental System",
+    "subtitle": "A full-stack Django-based car rental and taxi booking platform with multi-role access for customers, clients, and admins. It features state-wise car management, subscription-based access, dynamic location selection, and secure online/offline payment handling across India.",
+    "liveDemoLink": null,
+    "gitlink": "https://github.com/godsonmd/icars"
+  },
+  "projectContent": {
+    "thumbnail": {
+      "src": "../images/icars-thumbnail.png",
+      "alt": "iCARS thumbnail"
+    },
+    "projectOverview": [
+      "iCars — Car Rental System is a full-stack web application built with Django that streamlines car rentals and taxi bookings across India. Designed for real-world operations, it supports multi-role authentication (Customers, Clients, and Admins), a subscription model, and flexible payment options. The application combines dynamic location handling (geolocation, mini-map, or company office selection) with state-wise car management to deliver a smooth, scalable booking experience for both short-term rentals and taxi rides.",
+      "The project was created to solve common gaps in traditional rental platforms: rigid location support, limited role separation, and poor administrative control. iCars emphasizes role-based dashboards and workflows so each user type sees only what matters to them — customers manage profiles, subscriptions, and bookings; clients manage their vehicle listings and view bookings for their cars; admins centrally control users, listings, payments, and subscriptions via the Django admin backend. This separation makes the platform both user-friendly and easy to govern.",
+      "On the customer side, the flow starts with profile setup and subscription selection (monthly or yearly, paid online), then progresses to searching and booking vehicles or taxis (minimum one-day rentals) with pickup/drop choices tied to the selected location. Customers can use live geolocation, a mini-map picker, or choose an iCars office as their location. Rides and rentals are paid offline at pickup while subscription purchases are handled online and tracked in the admin dashboard.",
+      "For clients and admins the system provides comprehensive management tools: clients can add, edit, or remove cars across any Indian state and review bookings for their listings; admins manage all accounts and listings, approve incomes and subscription payments, and enforce policies (including bans) through a secure, admin-only interface. Built with Django (backend), HTML/CSS/JavaScript (frontend), and MySQL/SQLite (database), iCars is a production-ready, single-developer implementation that prioritizes reliability, location flexibility, and clear operational controls."
+    ],
+    "technologyStack": [
+      { "name": "Python", "icon": "fab fa-python" },
+      { "name": "Django", "icon": "fas fa-leaf" },
+      { "name": "MySQL / SQLite", "icon": "fas fa-database" },
+      { "name": "HTML5", "icon": "fab fa-html5" },
+      { "name": "CSS3", "icon": "fab fa-css3-alt" },
+      { "name": "JavaScript", "icon": "fab fa-js-square" },
+      { "name": "Geolocation & Mini-Map API", "icon": "fas fa-map-marked-alt" },
+      { "name": "Email SMTP Integration", "icon": "fas fa-envelope" },
+      { "name": "Django Admin Panel", "icon": "fas fa-tools" }
+    ],
+    "keyFeatures": [
+      {
+        "title": "Customer Features",
+        "items": [
+          "Create, edit, and manage user profiles",
+          "Choose subscription plans (monthly or yearly)",
+          "Book cars or taxis from any state in India",
+          "Access real-time location options — geolocation, mini-map, or office pickup",
+          "View current and upcoming bookings",
+          "Online subscription payments and offline ride payments"
+        ]
+      },
+      {
+        "title": "Client Features",
+        "items": [
+          "Manage profile and business details",
+          "Add, edit, or delete car listings for any state",
+          "View bookings made for their vehicles",
+          "Receive income after admin approval"
+        ]
+      },
+      {
+        "title": "Admin Features",
+        "items": [
+          "Exclusive backend access via Django Admin",
+          "Manage all customers, clients, and car listings",
+          "Approve or reject subscription payments",
+          "Monitor all bookings and activity logs",
+          "Ban or restrict users when necessary"
+        ]
+      },
+      {
+        "title": "Subscription & Payment System",
+        "items": [
+          "Online payments for subscriptions",
+          "Offline payments for rides and rentals",
+          "Admin-verified income approval",
+          "Separate dashboards for users and clients"
+        ]
+      },
+      {
+        "title": "Dynamic Location Handling",
+        "items": [
+          "Integrated mini-map for location selection",
+          "Support for all Indian states",
+          "Automatic geolocation detection",
+          "Company office location selection option"
+        ]
+      },
+      {
+        "title": "System Management & Analytics",
+        "items": [
+          "Real-time dashboards for all roles",
+          "Detailed analytics on subscriptions and bookings",
+          "Centralized control via Django Admin Panel",
+          "Secure authentication and data management"
+        ]
+      }
+    ],
+    "developmentProcess": [
+      "The development of iCars — Car Rental System was a comprehensive full-stack project built to simulate a scalable, real-world rental and booking platform. The process began with analyzing existing rental systems to identify gaps in multi-role management, payment flexibility, and location-based operations. The goal was to build a unified system that serves customers, clients, and admins through separate but interconnected dashboards.",
+      "Django was selected as the backend framework for its robustness, built-in authentication, and powerful admin interface. It streamlined the creation of role-based access control and model-driven database handling. MySQL and SQLite were used for database management, ensuring flexibility for both local development and production deployment. The frontend was developed using HTML, CSS, and JavaScript for a clean, responsive, and user-friendly experience.",
+      "One of the major challenges during development was implementing dynamic location functionality across all Indian states. This was achieved by integrating geolocation and mini-map APIs, enabling users to select their pickup and drop points visually or use real-time GPS data. Another critical focus was ensuring the distinction between online subscription payments and offline ride payments while maintaining transaction security and proper admin oversight.",
+      "The project followed a modular architecture where each user role (Customer, Client, and Admin) was designed as an independent workflow with shared models and APIs. This structure allowed efficient scalability, simplified debugging, and clear separation of responsibilities. Django’s admin panel was customized for backend operations like user management, car control, and subscription approvals. Overall, iCars reflects a production-ready system that balances simplicity, performance, and administrative control through efficient design and full-stack development."
+    ],
+    "screenshots": [
+      { "src": "../images/icars(1).png", "alt": "iCARS screenshot 1" },
+      { "src": "../images/icars(2).png", "alt": "iCARS screenshot 2" },
+      { "src": "../images/icars(3).png", "alt": "iCARS screenshot 3" },
+      { "src": "../images/icars(4).png", "alt": "iCARS screenshot 4" }
+    ],
+    "liveDemo": {
+      "iframeSrc": null,
+      "note": "No public live demo provided. Use local development (http://127.0.0.1:8000) or link your hosted demo here."
+    }
+  }
+}

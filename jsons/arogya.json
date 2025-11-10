@@ -1,0 +1,105 @@
+{
+  "projectHeader": {
+
+    "title": "Arogya - Diet Planner System",
+    "subtitle": "An AI-powered web application that generates personalized diet plans based on user location, budget, and preferences. Built with Django and powered by Google’s Gemini AI, Arogya offers intelligent meal suggestions, a nutrition chatbot, and seamless communication with healthcare professionals.",
+    "liveDemoLink": null,
+    "gitlink":"https://github.com/Godsonmd/Arogya"
+},
+    "projectContent": {
+    "thumbnail": {
+      "src": "../images/arogya-thumbnail.png",
+      "alt": "Arogya Diet Planner thumbnail"
+    },
+
+    "projectOverview": [
+      "Arogya - Diet Planner is a smart, Django-based web application that delivers personalized dietary plans and nutrition guidance using Google’s Gemini AI. Designed for everyday users and healthcare professionals alike, Arogya combines location-aware recommendations, budget-sensitive meal plans, and a conversational AI assistant to make healthy eating accessible, practical, and tailored to each user’s life.",
+      "The project was conceived to solve a common problem: one-size-fits-all diet advice. Many diet apps offer generic meal lists or rigid templates that ignore local food availability, cultural preferences, and budget constraints. Arogya changes that by using Gemini AI to generate context-aware meal plans that reflect the user’s selected Indian state, preferred budget tier (Low, Average, High), and personal preferences or restrictions. The result is a plan that feels realistic, affordable, and culturally appropriate.",
+      "Users start by creating an account and completing a simple profile (basic health info, preferred state, and budget). From there they can request a diet plan, chat with the AI-powered nutrition assistant for replacements and tips, locate nearby gym centers based on geolocation or selected state, and contact listed doctors directly via WhatsApp or email. Doctors have secure logins and dedicated dashboards where they manage their profile, toggle availability, and interact with patient queries. Admins manage gym listings, user and doctor records, and ensure data integrity through Django’s admin panel.",
+      "On the technical side, Arogya uses Django (Python) for the backend, plain HTML/CSS/JavaScript for the frontend, and integrates Gemini AI for both the chatbot and the diet recommendation engine. Geolocation APIs and a gym database provide local services, while secure contact links (WhatsApp, email) streamline doctor–patient communication. The AI component is designed to learn from interactions and feedback over time, improving recommendations and helping users adopt sustainable, healthy eating habits."
+    ],
+
+    "technologyStack": [
+      { "name": "Python", "icon": "fab fa-python" },
+      { "name": "Django", "icon": "fas fa-leaf" },
+      { "name": "Google Gemini AI", "icon": "fas fa-brain" },
+      { "name": "SQLite / MySQL", "icon": "fas fa-database" },
+      { "name": "Django REST Framework", "icon": "fas fa-cogs" },
+      { "name": "Geolocation API", "icon": "fas fa-map-marker-alt" },
+      { "name": "WhatsApp Link Generator", "icon": "fas fa-link" },
+      { "name": "HTML5", "icon": "fab fa-html5" },
+      { "name": "CSS3", "icon": "fab fa-css3-alt" },
+      { "name": "JavaScript", "icon": "fab fa-js-square" }
+    ],
+
+    "keyFeatures": [
+      {
+        "title": "AI-Powered Diet Planning",
+        "items": [
+          "Generates personalized diet plans using Google Gemini AI",
+          "Plans tailored by Indian state, budget, and preferences",
+          "Adjusts meals dynamically based on user feedback"
+        ]
+      },
+      {
+        "title": "Intelligent Chatbot",
+        "items": [
+          "24/7 AI nutrition assistant powered by Gemini AI",
+          "Answers diet, fitness, and health-related questions",
+          "Provides context-aware, conversational responses"
+        ]
+      },
+      {
+        "title": "Doctor Dashboard",
+        "items": [
+          "Secure doctor login and profile management",
+          "Toggle availability status for consultations",
+          "Share contact details for direct communication (WhatsApp / Email)"
+        ]
+      },
+      {
+        "title": "User Dashboard",
+        "items": [
+          "Personalized login and diet tracking",
+          "Save, edit, or share AI-generated diet plans",
+          "Access to local gym and doctor directories"
+        ]
+      },
+      {
+        "title": "Admin Panel Management",
+        "items": [
+          "Manage gym centers, users, and doctors",
+          "Add or edit gym details with images and services",
+          "Monitor and maintain data integrity via Django Admin"
+        ]
+      },
+      {
+        "title": "Smart Location Services",
+        "items": [
+          "Locate nearby gym centers using geolocation",
+          "Search gyms by Indian state or city",
+          "Integrated maps for easy navigation"
+        ]
+      }
+    ],
+
+    "developmentProcess": [
+      "The development of the Arogya Diet Planner System was an exciting and insightful journey that combined the power of artificial intelligence with practical health and nutrition management. The project began with extensive research into diet recommendation systems, user personalization techniques, and AI-driven conversational interfaces. The goal was to create a web platform that could provide context-aware, realistic, and affordable meal plans tailored to users’ lifestyles and regional preferences.",
+      "Django was chosen as the backend framework for its scalability, security, and robust admin panel, which streamlined data management for users, doctors, and gym centers. The frontend was developed using standard web technologies—HTML, CSS, and JavaScript—to ensure a clean, responsive interface accessible across all devices. The Gemini AI API was integrated to power both the intelligent diet recommendation engine and the chatbot system, enabling natural language interaction and smart, data-driven suggestions.",
+      "One of the primary challenges during development was fine-tuning the AI prompts and context-handling mechanisms to ensure that the generated diet plans felt human, culturally relevant, and personalized. Careful prompt engineering and iterative testing helped achieve balanced, realistic outputs from Gemini AI that could adapt to user feedback and preferences.",
+      "The system’s architecture was designed with modularity and role separation in mind. It includes distinct modules for users, doctors, and administrators, each with secure authentication and role-based access. Integration of the Geolocation API enabled smart location-based gym searches, while the WhatsApp Link Generator provided seamless doctor-patient communication. Overall, the development process emphasized usability, AI adaptability, and long-term maintainability."
+    ],
+
+    "screenshots": [
+      { "src": "../images/arogya(1).png", "alt": "Arogya screenshot 1" },
+      { "src": "../images/arogya(2).png", "alt": "Arogya screenshot 2" },
+      { "src": "../images/arogya(3).png", "alt": "Arogya screenshot 3" },
+      { "src": "../images/arogya(4).png", "alt": "Arogya screenshot 4" }
+    ],
+
+    "liveDemo": {
+      "iframeSrc": null,
+      "note": "No public live demo provided. Use local development (http://127.0.0.1:8000) or link your hosted demo here."
+    }
+  }
+}

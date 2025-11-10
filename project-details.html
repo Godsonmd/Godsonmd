@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title"> | Godson M D Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="/images/profile.jpg" type="image/svg+xml" style="border-radius: 50%;" width="96" height="96">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #ff4800;
+            --primary-blue: red;
+            --dark-bg: #000000;
+            --card-bg: #02010a;
+            --text-primary: #fff;
+            --text-secondary: #9CA3AF;
+            --glass-bg: rgba(10, 5, 20, 0.1);
+            --glass-border: rgba(173, 216, 230, 0.2);
+            --neon-glow: rgba(0, 225, 255, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html::-webkit-scrollbar {
+            background-color: #ff480086;
+            width: 5px;
+            border-radius: 10px;
+        }
+        
+        html::-webkit-scrollbar-track {
+            border-radius: 10px;
+            box-shadow: inset 0 0 6px rgba(23, 0, 73, 0.3);
+        }
+        
+        html::-webkit-scrollbar-thumb {
+            background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, #ff0000), color-stop(1, #ff8800));
+            border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Project Header */
+        .project-header {
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+
+        .project-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(-45deg, var(--primary-purple), var(--primary-blue), #ff8800, #ff0000);
+            background-size: 400% 400%;
+            background-clip: text;
+
+            -webkit-text-fill-color: white;
+            animation: gradient-animation 15s ease infinite;
+        }
+        
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 12px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(-45deg, black, var(--primary-blue));
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px #000000;
+        }
+
+        .btn-secondary {
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid white;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+        
+        .project-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Main Content Section */
+        .project-content {
+            padding: 50px 0;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .project-image, .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .project-image img, .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            margin: 40px 0 20px;
+            color: white;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-item {
+            display: flex;
+            align-items: center;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .tech-item i {
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .feature-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: white;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+        }
+
+        .demo-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .demo-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 50px;
+            background-color: var(--card-bg);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        /* For devices with a max-width of 700px */
+@media (max-width: 700px) {
+    .project-header {
+        padding: 80px 15px 40px 15px;
+    }
+
+    .project-title {
+        font-size: 2.8rem;
+    }
+
+    .project-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .project-links {
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+
+    .project-content {
+        padding: 30px 0;
+    }
+
+    .glass-card {
+        padding: 30px 20px;
+    }
+    
+    .project-image img, .gallery-item img {
+        width: 100%;
+    }
+
+    .image-gallery {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .tech-stack {
+        gap: 10px;
+    }
+
+    .tech-item {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feature-card {
+        padding: 20px;
+    }
+
+    .feature-title {
+        font-size: 1.2rem;
+    }
+
+    .feature-list li {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 30px 20px;
+        margin-top: 30px;
+    }
+}
+
+/* For devices with a max-width of 500px */
+@media (max-width: 500px) {
+    .project-header {
+        padding: 60px 10px 30px 10px;
+    }
+
+    .project-title {
+        font-size: 2.2rem;
+    }
+
+    .project-subtitle {
+        font-size: 1rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .glass-card {
+        padding: 25px 15px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .feature-title {
+        font-size: 1.1rem;
+    }
+
+    .feature-list li {
+        font-size: 0.95rem;
+    }
+    .demo-video {
+    position: relative;
+    padding-bottom: 177.77%; /* 9:16 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 1px solid var(--glass-border);
+}
+
+.demo-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+}
+
+    </style>
+     <link rel="stylesheet" href="responsive-life-simulation.css">
+</head>
+<body id="body">
+    <svg id="background-animation" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <linearGradient id="polygon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff0000"><animate attributeName="stop-color" values="#ff0000; #ff8800; #ff0000" dur="10s" repeatCount="indefinite"></animate></stop>
+                <stop offset="100%" stop-color="#ff8800"><animate attributeName="stop-color" values="#ff8800; #ff0000; #ff8800" dur="10s" repeatCount="indefinite"></animate></stop>
+            </linearGradient>
+            <pattern id="polygon-pattern" patternUnits="userSpaceOnUse" width="120" height="140" patternTransform="scale(1.5)">
+                <g stroke="rgba(255, 255, 255, 0.05)" stroke-width="1">
+                    <path d="M120 35 L120 105 L60 140 L60 70 Z" fill="black"></path>
+                    <path d="M0 35 L60 70 L60 140 L0 105 Z" fill="url(#polygon-gradient)"></path>
+                    <path d="M60 0 L120 35 L60 70 L0 35 Z" fill="url(#polygon-gradient)" opacity="0.6"></path>
+                </g>
+            </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="#000000"></rect>
+        <rect width="100%" height="100%" fill="url(#polygon-pattern)"></rect>
+    </svg>
+
+    <!-- Project Header -->
+    
+</body>
+<script>
+    let projectname = localStorage.getItem("projectname");
+    console.log(projectname || "No project name found");
+    document.getElementById("title").innerText = projectname.toUpperCase() + " | Godson M D Portfolio";
+    const details = document.getElementById('body');
+    let SomeHTML = '';
+    async function loadProject(projectname) {
+    try {
+        const res = await fetch(`/jsons/${projectname}.json`);
+        if(!res.ok) {
+            throw new Error('json response was not ok ' + res.statusText);
+        }
+        const data = await res.json();
+        let p1=`
+        <section class="project-header">
+        <div class="container">
+            <h1 class="project-title">${data.projectHeader.title}</h1>
+            <p class="project-subtitle">${data.projectHeader.subtitle}</p>
+            <div class="project-links">
+                <a href="${data.projectHeader.gitlink}" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View on GitHub</a>
+        `;
+        if (data.projectHeader.liveDemoLink) {
+            p1+=`
+                <a href="${data.projectHeader.liveDemoLink}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            `;
+        }
+        let p2=`
+                
+                <a href="../index.html#projects" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+            </div>
+        </div>
+    </section>
+        `;
+        let p3=`
+        <section class="project-content">
+        <div class="container">
+            <div class="glass-card">
+                <div class="project-image">
+                    <img src="${data.projectContent.thumbnail.src}" alt="${data.projectContent.thumbnail.alt}">
+                </div>
+                
+                <h2 class="section-title">Project Overview</h2>
+        `;
+        data.projectContent.projectOverview.forEach(para => {
+            p3+=`<p>${para}</p><br>`;
+        });
+        let p4=`
+                <h2 class="section-title">Technology Stack</h2>
+                <div class="tech-stack">`;
+        data.projectContent.technologyStack.forEach(tech => {
+            p4+=`
+                    <div class="tech-item">
+                        <i class="${tech.icon}"></i>
+                        <span>${tech.name}</span>
+                    </div>
+            `;
+        });
+        p4+=`
+                </div>
+                
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+        `;
+        data.projectContent.keyFeatures.forEach(feature => {
+            p4+=`
+                    <div class="feature-card">
+                        <h3 class="feature-title">${feature.title}</h3>
+                        <ul class="feature-list">
+            `;
+            feature.items.forEach(point => {
+                p4+=`<li>${point}</li>`;
+            });
+            p4+=`
+                        </ul>
+                    </div>
+            `;
+        });
+        p4+=`
+                </div>
+        `;
+        let p5=`
+                <h2 class="section-title">Development Process</h2>
+        `;
+        data.projectContent.developmentProcess.forEach(para => {
+            p5+=`<p>${para}</p><br>`;
+        });
+        let p6=`
+                <h2 class="section-title">Screenshots</h2>
+                <div class="image-gallery">
+        `;
+        data.projectContent.screenshots.forEach(image => {
+            p6+=`
+                    <div class="gallery-item">
+                        <img src="${image.src}" alt="${image.alt}">
+                    </div>
+            `;
+        });
+        p6+=`
+                </div>
+        `;
+        if(data.projectHeader.liveDemoLink) {
+            p6+=`
+                <h2 class="section-title">Live Demo</h2>
+                <div class="demo-video">
+                    <iframe src="${data.projectContent.liveDemo.iframeSrc}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            `;
+        }
+        p6+=`
+            </div>
+        </div>
+    </section>
+        `;
+        SomeHTML = p1 + p2 + p3 + p4 + p5 + p6;
+        details.innerHTML += SomeHTML;
+        details.innerHTML += `
+        <footer>
+        <div class="container">
+            <a href="../index.html#projects" class="back-link btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+            <p>&copy; 2025 Godson M D. All Rights Reserved.</p>
+        </div>
+    </footer>
+        `;
+
+
+    } catch (error) {
+        console.error('Error fetching project details:', error);
+    }
+}
+loadProject(projectname);
+</script>
+</html>
