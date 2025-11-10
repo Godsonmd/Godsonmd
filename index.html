@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" href="/images/profile.jpg" type="image/svg+xml" style="border-radius: 50%;" width="96" height="96">
+  <link rel="icon" href="./images/profile.jpg" type="image/svg+xml" style="border-radius: 50%;" width="96" height="96">
   <title>Godson M D | Portfolio</title>
   
   <style>
@@ -1010,7 +1010,7 @@ window.onload = function() {
     const projectline = document.getElementById('projectline');
     let timelineHTML = '';
     let projectlineHTML = '';
-  fetch('/jsons/timeline.json')
+  fetch('./jsons/timeline.json')
     .then(response => response.json())
     .then(data => {
       data.timeline.forEach(item => {
@@ -1041,7 +1041,7 @@ window.onload = function() {
         `;
         exp.innerHTML += timelineHTML;
 });
-fetch('/jsons/projects.json')
+fetch('./jsons/projects.json')
     .then(response => response.json())
     .then(data => {
       data.projects.forEach(item => {
@@ -1249,4 +1249,5 @@ window.location.href="";
     
   </script>
 </body>
+
 </html>
