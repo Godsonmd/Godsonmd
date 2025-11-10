@@ -7,7 +7,7 @@
   },
   "projectContent": {
     "thumbnail": {
-      "src": "../images/icars-thumbnail.png",
+      "src": "./images/icars-thumbnail.png",
       "alt": "iCARS thumbnail"
     },
     "projectOverview": [
@@ -93,10 +93,10 @@
       "The project followed a modular architecture where each user role (Customer, Client, and Admin) was designed as an independent workflow with shared models and APIs. This structure allowed efficient scalability, simplified debugging, and clear separation of responsibilities. Django’s admin panel was customized for backend operations like user management, car control, and subscription approvals. Overall, iCars reflects a production-ready system that balances simplicity, performance, and administrative control through efficient design and full-stack development."
     ],
     "screenshots": [
-      { "src": "../images/icars(1).png", "alt": "iCARS screenshot 1" },
-      { "src": "../images/icars(2).png", "alt": "iCARS screenshot 2" },
-      { "src": "../images/icars(3).png", "alt": "iCARS screenshot 3" },
-      { "src": "../images/icars(4).png", "alt": "iCARS screenshot 4" }
+      { "src": "./images/icars(1).png", "alt": "iCARS screenshot 1" },
+      { "src": "./images/icars(2).png", "alt": "iCARS screenshot 2" },
+      { "src": "./images/icars(3).png", "alt": "iCARS screenshot 3" },
+      { "src": "./images/icars(4).png", "alt": "iCARS screenshot 4" }
     ],
     "liveDemo": {
       "iframeSrc": null,
@@ -104,3 +104,4 @@
     }
   }
 }
+
