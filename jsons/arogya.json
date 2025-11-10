@@ -8,7 +8,7 @@
 },
     "projectContent": {
     "thumbnail": {
-      "src": "./images/arogya-thumbnail.png",
+      "src": "images/arogya-thumbnail.png",
       "alt": "Arogya Diet Planner thumbnail"
     },
 
@@ -91,10 +91,10 @@
     ],
 
     "screenshots": [
-      { "src": "./images/arogya(1).png", "alt": "Arogya screenshot 1" },
-      { "src": "./images/arogya(2).png", "alt": "Arogya screenshot 2" },
-      { "src": "./images/arogya(3).png", "alt": "Arogya screenshot 3" },
-      { "src": "./images/arogya(4).png", "alt": "Arogya screenshot 4" }
+      { "src": "images/arogya(1).png", "alt": "Arogya screenshot 1" },
+      { "src": "images/arogya(2).png", "alt": "Arogya screenshot 2" },
+      { "src": "images/arogya(3).png", "alt": "Arogya screenshot 3" },
+      { "src": "images/arogya(4).png", "alt": "Arogya screenshot 4" }
     ],
 
     "liveDemo": {
@@ -103,4 +103,5 @@
     }
   }
 }
+
 
