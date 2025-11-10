@@ -8,7 +8,7 @@
 },
     "projectContent": {
     "thumbnail": {
-      "src": "../images/life-sim-thumbnail.png",
+      "src": "./images/life-sim-thumbnail.png",
       "alt": "Life Simulation Game Thumbnail"
     },
 
@@ -92,10 +92,10 @@
     ],
 
     "screenshots": [
-      { "src": "../images/life-sim (1).png", "alt": "life-sim  screenshot 1" },
-      { "src": "../images/life-sim (2).png", "alt": "life-sim  screenshot 2" },
-      { "src": "../images/life-sim (3).png", "alt": "life-sim  screenshot 3" },
-      { "src": "../images/life-sim (4).png", "alt": "life-sim  screenshot 4" }
+      { "src": "./images/life-sim (1).png", "alt": "life-sim  screenshot 1" },
+      { "src": "./images/life-sim (2).png", "alt": "life-sim  screenshot 2" },
+      { "src": "./images/life-sim (3).png", "alt": "life-sim  screenshot 3" },
+      { "src": "./images/life-sim (4).png", "alt": "life-sim  screenshot 4" }
     ],
 
     "liveDemo": {
@@ -104,3 +104,4 @@
     }
   }
 }
+
