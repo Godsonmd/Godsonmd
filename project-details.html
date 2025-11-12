@@ -461,6 +461,7 @@
     document.getElementById("title").innerText = projectname.toUpperCase() + " | Godson M D Portfolio";
     const details = document.getElementById('body');
     let SomeHTML = '';
+    let backLink = "href='../index.html#contact'";
     async function loadProject(projectname) {
     try {
         const res = await fetch(`./jsons/${projectname}.json`);
@@ -481,9 +482,11 @@
                 <a href="${data.projectHeader.liveDemoLink}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             `;
         }
+        else {
+            backLink='onclick="window.history.back()"';
+        }
         let p2=`
-                
-                <a onclick="window.history.back()" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+               <a ${backLink} class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Projects</a> 
             </div>
         </div>
     </section>
@@ -573,7 +576,7 @@
         details.innerHTML += `
         <footer>
         <div class="container">
-            <a onclick="window.history.back()" class="back-link btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+            <a ${backLink} class="back-link btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
             <p>&copy; 2025 Godson M D. All Rights Reserved.</p>
         </div>
     </footer>
@@ -588,6 +591,7 @@ loadProject(projectname);
 </script>
 
 </html>
+
 
 
 
