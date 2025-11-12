@@ -1129,7 +1129,7 @@ function openproject(link){
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
-                    document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
+                   localStorage.setItem("idnow",id); document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
                     const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
@@ -1265,7 +1265,13 @@ function showtoggle() {
 window.location.href="";
     }
 }
-    
+    window.onload = function() {
+const idnow=localStorage.getItem('idnow') || 'home';
+  const projectElement = document.getElementById(idnow);
+  if (projectElement) {
+    projectElement.scrollIntoView();
+  }
+};
   </script>
 </body>
 
