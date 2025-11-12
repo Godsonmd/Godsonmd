@@ -1,0 +1,85 @@
+{
+  "projectHeader": {
+    "title": "Tic Tac Toe – 2 Player Game",
+    "subtitle": "A clean, responsive, browser-based Tic Tac Toe for two local players. Built with vanilla HTML, CSS and JavaScript — no backend, no AI; two humans share one screen.",
+    "liveDemoLink": "https://godsonmd.github.io/tic-tac-toe/",
+    "gitlink": "https://github.com/godsonmd/tic-tac-toe"
+  },
+  "projectContent": {
+    "thumbnail": {
+      "src": "./images/TTT-thumbnail.png",
+      "alt": "Tic Tac Toe game thumbnail"
+    },
+    "projectOverview": [
+      "This is a lightweight, web-based Tic Tac Toe implementation that allows two human players to play on the same device. It focuses on a polished UI, simple controls for player customization, and robust turn-based game logic implemented entirely in client-side JavaScript.",
+      "Players enter their names, can swap X and O before the match starts, and take turns marking a 3x3 grid. The game detects wins (horizontal, vertical, diagonal) and draws, shows visual feedback for the winning line, and presents post-game options to change names, play again (keeping scores), or start a new match (reset scores).",
+      "Designed for clarity and responsiveness, the project demonstrates DOM manipulation, state management with plain JS arrays/objects, and CSS-based visual effects — all without any backend or persistence layer."
+    ],
+    "technologyStack": [
+      { "name": "HTML5", "icon": "fab fa-html5" },
+      { "name": "CSS3", "icon": "fab fa-css3-alt" },
+      { "name": "JavaScript (Vanilla)", "icon": "fab fa-js-square" },
+      { "name": "GitHub Pages", "icon": "fab fa-github" }
+    ],
+    "keyFeatures": [
+      {
+        "title": "Player Customization",
+        "items": [
+          "Enter custom names for Player 1 and Player 2 before starting",
+          "Toggle/swap X and O icons before the first move"
+        ]
+      },
+      {
+        "title": "Turn-Based Game Logic",
+        "items": [
+          "Alternates turns and prevents marking an occupied cell",
+          "Game state stored in a 9-element array representing the grid",
+          "Win detection for all 8 winning combinations (3 rows, 3 columns, 2 diagonals)",
+          "Draw detection when all cells are filled without a winner"
+        ]
+      },
+      {
+        "title": "Post-Game Options",
+        "items": [
+          "Change Names — start a fresh game with new player names",
+          "Play Again — rematch using the same players and keep current scores",
+          "New Game — rematch with same players but reset scores to zero"
+        ]
+      },
+      {
+        "title": "User Experience",
+        "items": [
+          "Responsive layout that works on phone and desktop",
+          "Visual highlight for the winning line and a clear end-of-game modal",
+          "Simple, keyboard-accessible controls for accessibility"
+        ]
+      },
+      {
+        "title": "Limitations",
+        "items": [
+          "Local two-player only (no networked multiplayer)",
+          "No AI/computer opponent — strictly human vs human",
+          "Game state is not persisted across page refreshes"
+        ]
+      }
+    ],
+    "developmentProcess": [
+      "Planned a minimal UI: a 3x3 grid, player info panel, and a post-game modal with options.",
+      "Implemented game state as an array of 9 values (null / 'X' / 'O'), and wired each cell to an event listener that updates state and the DOM on click.",
+      "Created a win-checking function that iterates the 8 winning index combinations and returns the winning line when detected; triggers UI updates and score increments.",
+      "Built reusable functions for resetting the board (soft reset), resetting scores (hard reset), and swapping player icons before the first move.",
+      "Styled UI responsively with CSS Grid/Flexbox, added small animations for clicks and the winning line, and tested across desktop and mobile viewport sizes.",
+      "Tested edge cases: double-clicks, clicking after game end, swapping icons mid-game (blocked), and draw detection."
+    ],
+    "screenshots": [
+      { "src": "./images/TTT(1).png", "alt": "Main game board with empty grid" },
+      { "src": "./images/TTT(2).png", "alt": "Players entering names and toggling X/O" },
+      { "src": "./images/TTT(3).png", "alt": "Winning line highlighted with end-of-game modal" },
+      { "src": "./images/TTT(4).png", "alt": "Play again and change names options displayed" }
+    ],
+    "liveDemo": {
+      "iframeSrc": "https://godsonmd.github.io/tic-tac-toe/",
+      "alt": "Live demo of Tic Tac Toe (Two Player)"
+    }
+  }
+}
