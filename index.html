@@ -1265,13 +1265,15 @@ function showtoggle() {
 window.location.href="";
     }
 }
-    window.onload = function() {
-const idnow=localStorage.getItem('idnow') || 'home';
+    document.addEventListener('DOMContentLoaded', () => {
+  const idnow = localStorage.getItem('idnow') || 'home';
   const projectElement = document.getElementById(idnow);
+
   if (projectElement) {
-    projectElement.scrollIntoView();
+    projectElement.scrollIntoView({ behavior: 'smooth' });
   }
-};
+});
+
   </script>
 </body>
 
