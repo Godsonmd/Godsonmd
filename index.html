@@ -1062,7 +1062,8 @@ fetch('./jsons/projects.json')
     .then(response => response.json())
     .then(data => {
       data.projects.forEach(item => {
-        console.log(item);
+        if(item.public)
+        {
          projectlineHTML+= `
          <div class="project-card">
                 <div class="project-thumbnail">
@@ -1083,6 +1084,7 @@ fetch('./jsons/projects.json')
                 </div>
             </div>
         `;
+        }
         
     });
     projectline.innerHTML += projectlineHTML;
@@ -1268,6 +1270,7 @@ window.location.href="";
 </body>
 
 </html>
+
 
 
 
