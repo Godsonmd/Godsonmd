@@ -1,6 +1,7 @@
 {
   "projects": [
     {
+      "public":true,
       "title": "Interactive Life Simulation Game",
       "thumbnail": "./images/life-sim-thumbnail.png",
       "alt": "Life Simulation Game Project Thumbnail",
@@ -9,6 +10,7 @@
       "link": "life-simulation"
     },
     {
+      "public":true,
       "title": "Arogya – Diet Planner System",
       "thumbnail": "images/Arogya-thumbnail.png",
       "alt": "OSAS Project Thumbnail",
@@ -17,6 +19,7 @@
       "link": "arogya"
     },
     {
+      "public":true,
       "title": "iCARS - Car Rental System",
       "thumbnail": "images/icars-thumbnail.png",
       "alt": "File Converter Project Thumbnail",
@@ -25,6 +28,7 @@
       "link": "icars"
     },
     {
+      "public":false,
       "title": "Tic Tac Toe – 2 Player Game",
       "thumbnail": "images/TTT-thumbnail.png",
       "alt": "TTT Project Thumbnail",
@@ -34,4 +38,5 @@
     }
   ]
 }
+
 
