@@ -23,6 +23,15 @@
       "description": "It's a robust Django-based full-stack web application that enables customers to rent cars or book taxis across India. It features a multi-role login system for Customers, Clients, and Admins, along with a subscription model and detailed role-based dashboards. The application supports dynamic location handling, offline/online payments, car management by state, and administrative control through Django's backend.",
       "technologies": ["Django", "SQLite", "HTML/CSS/JS"],
       "link": "icars"
+    },
+    {
+      "title": "Tic Tac Toe – 2 Player Game",
+      "thumbnail": "images/TTT-thumbnail.png",
+      "alt": "TTT Project Thumbnail",
+      "description": "This is a web-based Tic Tac Toe game built using HTML, CSS, and JavaScript — with no backend or computer player logic. It supports two human players playing from the same device and includes dynamic controls to customize player icons and restart game rounds easily.",
+      "technologies": ["HTML","CSS","JS"],
+      "link": "TTT"
     }
   ]
 }
+
