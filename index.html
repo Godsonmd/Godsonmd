@@ -1104,7 +1104,7 @@ fetch('./jsons/projects.json')
 });
 function openproject(link){
     localStorage.setItem('projectname', link);
-    window.open('project-details.html','_self');
+   localStorage.setItem("idnow",'project'); window.open('project-details.html','_self');
 }
 </script>
 
@@ -1129,7 +1129,7 @@ function openproject(link){
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
-                   localStorage.setItem("idnow",id); document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
+                    document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
                     const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
