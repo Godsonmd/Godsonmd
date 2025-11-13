@@ -459,6 +459,7 @@
     
 </body>
 <script>
+  localStorage.setItem("idnow", 'projects');
     let projectname = localStorage.getItem("projectname");
     console.log(projectname || "No project name found");
     document.getElementById("title").innerText = projectname.toUpperCase() + " | Godson M D Portfolio";
