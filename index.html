@@ -1160,7 +1160,7 @@ document.addEventListener('DOMContentLoaded', () => {
       from_name: document.getElementById('from_name').value,
       from_email: document.getElementById('from_email').value,
       to_name: 'Godson M D',
-      message: `Message from ${from_name} (${from_email}):\n\n${document.getElementById('message').value}`
+      message: `Message from ${document.getElementById('from_name').value} (${document.getElementById('from_email').value}):\n\n${document.getElementById('message').value}`
     };
 
     try {
@@ -1266,3 +1266,4 @@ function showtoggle() {
 </body>
 
 </html>
+
