@@ -1010,277 +1010,250 @@
         <br>
     </footer>
     
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-window.onload = function() {
-  // Check if device is mobile using the user agent
+    
+    <script defer>
+
+
+window.addEventListener('load', () => {
   const isMobile = /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
-
   if (isMobile) {
-    // If mobile, update the element content
-    document.querySelector(".tech-font").innerHTML = "GODSON<br>M D";
+    const techFont = document.querySelector(".tech-font");
+    if (techFont) techFont.innerHTML = "GODSON<br>M D";
   }
-};
-</script>
-<script>
-    const exp = document.getElementById('timeline');
-    const projectline = document.getElementById('projectline');
-    let timelineHTML = '';
-    let projectlineHTML = '';
-  fetch('./jsons/timeline.json')
-    .then(response => response.json())
-    .then(data => {
-      data.timeline.forEach(item => {
-        console.log(item);
-         timelineHTML+= `
-         <div class="timeline-item">
-                <div class="timeline-content">
-          <strong class="experience-title">${item.title}</strong><br>
-          <em class="experience-period">${item.period}</em>
-          <p class="experience-description">${item.description}</p>
-        </div>
-      </div>
-        `;
-        
-    });
-    exp.innerHTML += timelineHTML;
-})
-.catch(error => {
-    console.error('Error loading JSON:', error);
-    timelineHTML+= `
-         <div class="timeline-item">
-                <div class="timeline-content">
-          <strong class="experience-title">JSON File Fetching Error</strong><br>
-          
-          <p class="experience-description"> ${error}</p>
-        </div>
-      </div>
-        `;
-        exp.innerHTML += timelineHTML;
 });
-fetch('./jsons/projects.json')
-    .then(response => response.json())
-    .then(data => {
-      data.projects.forEach(item => {
-        if(item.public)
-        {
-         projectlineHTML+= `
-         <div class="project-card">
-                <div class="project-thumbnail">
-                    <img src="${item.thumbnail}" alt="${item.alt}">
-                </div>
-                <div class="project-card-content">
-                    <h3 class="project-title">${item.title}</h3>
-                    <p class="project-description">${item.description}</p>
-                    <div class="project-tech">
-                        ${item.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                    </div>
-                    <a onclick="openproject('${item.link}')" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        View Details
-                    </a>
-                </div>
-            </div>
-        `;
-        }
-        
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const exp = document.getElementById('timeline');
+  const projectline = document.getElementById('projectline');
+  let timelineHTML = '';
+  let projectlineHTML = '';
+
+  try {
+    const [timelineRes, projectRes] = await Promise.all([
+      fetch('./jsons/timeline.json').then(r => r.json()),
+      fetch('./jsons/projects.json').then(r => r.json())
+    ]);
+
+    
+    timelineRes.timeline.forEach(item => {
+      timelineHTML += `
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <strong class="experience-title">${item.title}</strong><br>
+            <em class="experience-period">${item.period}</em>
+            <p class="experience-description">${item.description}</p>
+          </div>
+        </div>`;
     });
-    projectline.innerHTML += projectlineHTML;
-})
-.catch(error => {
-    console.error('Error loading JSON:', error);
-    projectlineHTML+= `
-         <div class="project-card">
-                
-                <div class="project-card-content">
-                    <h3 class="project-title">JSON File Fetching Error</h3>
-                    <p class="project-description">${error}</p>
-                </div>
+    if (exp) exp.innerHTML += timelineHTML;
+
+   
+    projectRes.projects.forEach(item => {
+      if (item.public) {
+        projectlineHTML += `
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="${item.thumbnail}" alt="${item.alt}">
             </div>
-        `;
-        projectline.innerHTML += projectlineHTML;
+            <div class="project-card-content">
+              <h3 class="project-title">${item.title}</h3>
+              <p class="project-description">${item.description}</p>
+              <div class="project-tech">
+                ${item.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+              </div>
+              <a onclick="openproject('${item.link}')" class="project-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View Details
+              </a>
+            </div>
+          </div>`;
+      }
+    });
+    if (projectline) projectline.innerHTML += projectlineHTML;
+
+  } catch (error) {
+    console.error('Error loading JSON:', error);
+    if (exp) exp.innerHTML += `<div class="timeline-item"><div class="timeline-content">
+      <strong>JSON Error</strong><p>${error}</p></div></div>`;
+    if (projectline) projectline.innerHTML += `<div class="project-card"><h3>JSON Error</h3><p>${error}</p></div>`;
+  }
+
+  
+  const idnow = localStorage.getItem('idnow') || 'home';
+  const target = document.getElementById(idnow);
+  if (target) {
+    setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 300);
+    localStorage.setItem('idnow', '');
+  }
 });
-function openproject(link){
-    localStorage.setItem('projectname', link);
-   localStorage.setItem("idnow",'project'); window.open('project-details.html','_self');
+
+
+function openproject(link) {
+  localStorage.setItem('projectname', link);
+  localStorage.setItem("idnow", 'projects');
+  window.open('project-details.html', '_self');
 }
-</script>
 
-    <script>
-        
-    document.addEventListener('DOMContentLoaded', () => {
-        const animatedElements = document.querySelectorAll('.scroll-animate');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        animatedElements.forEach(el => observer.observe(el));
 
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('main, section[id]');
-        
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
-                    const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-                }
-            });
-        }, { 
-            rootMargin: '-50% 0px -50% 0px'
-        });
-        
-        sections.forEach(section => {
-            if (section) navObserver.observe(section);
-        });
-
-        
-        const contactForm = document.getElementById('contact-form');
-        const submitBtn = contactForm.querySelector('.submit-btn');
-        const btnText = submitBtn.querySelector('.btn-text');
-
-        contactForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            const originalText = btnText.textContent;
-            submitBtn.disabled = true;
-            submitBtn.classList.add('loading');
-            btnText.textContent = 'Sending...';
-
-            const fromName = document.getElementById('from_name').value;
-            const fromEmail = document.getElementById('from_email').value;
-            const message = document.getElementById('message').value;
-            
-            const templateParams = {
-                from_name: fromName,
-                from_email: fromEmail,
-                to_name: 'Godson M D',
-                message: `Message from ${fromName} (${fromEmail}):\n\n${message}`
-            };
-            
-            try {
-    const res = await fetch('https://formspree.io/f/mqawkkzn', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(templateParams)
+document.addEventListener('DOMContentLoaded', () => {
+  const animatedElements = document.querySelectorAll('.scroll-animate');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
     });
-    if (res.ok) {
-        console.log('SUCCESS!');
+  }, { threshold: 0.1 });
+  animatedElements.forEach(el => observer.observe(el));
+
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('main, section[id]');
+
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+
+  sections.forEach(section => navObserver.observe(section));
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const idnow = link.getAttribute('data-tooltip').toLowerCase();
+      localStorage.setItem("idnow", idnow);
+    });
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.getElementById('contact-form');
+  if (!contactForm) return;
+
+  const submitBtn = contactForm.querySelector('.submit-btn');
+  const btnText = submitBtn.querySelector('.btn-text');
+
+  contactForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const originalText = btnText.textContent;
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+    btnText.textContent = 'Sending...';
+
+    const templateParams = {
+      from_name: document.getElementById('from_name').value,
+      from_email: document.getElementById('from_email').value,
+      to_name: 'Godson M D',
+      message: `Message from ${from_name} (${from_email}):\n\n${document.getElementById('message').value}`
+    };
+
+    try {
+      const res = await fetch('https://formspree.io/f/mqawkkzn', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(templateParams)
+      });
+      if (res.ok) {
         alert('Message sent successfully!');
         contactForm.reset();
-    } else {
-      const text = await res.text();
-      console.error('Formspree error', text);
-      alert('Failed to send message.');
+      } else {
+        console.error(await res.text());
+        alert('Failed to send message.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
+      btnText.textContent = originalText;
     }
-  } catch (err) {
-    console.log('FAILED...', error);
-    alert('Failed to send message. Please try again.');
-  } finally {
-    submitBtn.disabled = false;
-                    submitBtn.classList.remove('loading');
-                    btnText.textContent = originalText;
-  }});
+  });
 });
 
-</script>
-  <script>
-    const container = document.querySelector('.container');
-    for(let i=0; i<41;i++){
-      const div = document.createElement('div');
-      div.classList.add('row');
-      for(let j=0; j<61;j++){
-        const innerDiv = document.createElement('div');
-        innerDiv.classList.add('hexagon');
-        div.appendChild(innerDiv);
-      }
-      container.appendChild(div);
-    }
-    
- 
-  const hexagons = document.querySelectorAll(".hexagon");
 
-  // Determine grid width (number of hexagons per row)
-  // You already have ~61 per row in your code
-  const cursur = document.querySelector('.curser');
-  cursur.style.background = 'black';
-  setTimeout(()=>{cursur.style.background = 'radial-gradient(circle, rgba(255,255,255,0.9) 10%, rgba(44,255,29,0.5) 40%, rgba(44,255,29,0) 70%)';},4000);
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.container');
+  if (!container) return;
+
+  for (let i = 0; i < 41; i++) {
+    const div = document.createElement('div');
+    div.classList.add('row');
+    for (let j = 0; j < 61; j++) {
+      const innerDiv = document.createElement('div');
+      innerDiv.classList.add('hexagon');
+      div.appendChild(innerDiv);
+    }
+    container.appendChild(div);
+  }
+
+  const hexagons = document.querySelectorAll(".hexagon");
   const cols = 61;
+  const cursor = document.querySelector('.curser');
+  if (cursor) {
+    cursor.style.background = 'black';
+    setTimeout(() => {
+      cursor.style.background = 'radial-gradient(circle, rgba(255,255,255,0.9) 10%, rgba(44,255,29,0.5) 40%, rgba(44,255,29,0) 70%)';
+    }, 4000);
+  }
+
   hexagons.forEach((hex, index) => {
     const row = Math.floor(index / cols);
     const col = index % cols;
-
-    // The diagonal delay formula
-    const delay = (row + col) * 150; // Adjust 80ms for faster/slower wave
-
+    const delay = (row + col) * 150;
     setTimeout(() => {
       hex.style.transform = "translate(-100px,-100px) rotateY(180deg) scale(1)";
       hex.style.filter = "brightness(2)";
-
-      // Reset to normal after rotation
       setTimeout(() => {
         hex.style.transform = "";
         hex.style.filter = "";
       }, 800);
     }, delay);
   });
-
-let isToggled = false;
-const togglebtn = document.getElementById('toggle-btn');
-toggleitems=['home','about','experience','projects','contact','footer'];
-function showtoggle() {
-    isToggled = !isToggled;
-    if (isToggled) {
-        toggleitems.forEach(id => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.style.display = 'none';
-            }
-        });
-        togglebtn.innerHTML = `<svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
-  <circle cx="12" cy="12" r="9" fill="#DD0000"/>
-</svg>`;
-} else {
-    toggleitems.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.style.display = '';
-        }
-    });
-    togglebtn.innerHTML = `<svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
-<rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
-<circle cx="36" cy="12" r="9" fill="#DDDDDD"/>
-</svg>`;
-window.location.href="";
-    }
-}
-    document.addEventListener('DOMContentLoaded', () => {
-  const idnow = localStorage.getItem('idnow') || 'home';
-  const projectElement = document.getElementById(idnow);
-
-  if (projectElement) {
-    projectElement.scrollIntoView({ behavior: 'smooth' });
-  }
 });
 
-  </script>
+
+let isToggled = false;
+const toggleitems = ['home', 'about', 'experience', 'projects', 'contact', 'footer'];
+function showtoggle() {
+  isToggled = !isToggled;
+  const togglebtn = document.getElementById('toggle-btn');
+  if (!togglebtn) return;
+
+  if (isToggled) {
+    toggleitems.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    togglebtn.innerHTML = `
+      <svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="12" r="9" fill="#DD0000"/>
+      </svg>`;
+  } else {
+    toggleitems.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = '';
+    });
+    togglebtn.innerHTML = `
+      <svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="36" cy="12" r="9" fill="#DDDDDD"/>
+      </svg>`;
+    window.location.href = ""; 
+  }
+}
+</script>
+
 </body>
 
 </html>
-
-
-
-
-
-
