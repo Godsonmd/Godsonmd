@@ -460,7 +460,7 @@
 </body>
 <script>
   localStorage.setItem("idnow", 'projects');
-    let projectname = localStorage.getItem("projectname");
+    let projectname = localStorage.getItem("projectname") || "icars";
     console.log(projectname || "No project name found");
     document.getElementById("title").innerText = projectname.toUpperCase() + " | Godson M D Portfolio";
     const details = document.getElementById('body');
@@ -595,6 +595,7 @@ loadProject(projectname);
 </script>
 
 </html>
+
 
 
 
