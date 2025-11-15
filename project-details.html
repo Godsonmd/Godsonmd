@@ -35,16 +35,14 @@
             scroll-behavior: smooth;
         }
 
+        button,a{
+        user-select: none;
+        }
         html::-webkit-scrollbar {
             background-color: #ff480086;
             width: 5px;
-            border-radius: 10px;
         }
-        button,a{
-    user-select: none;
-}
         html::-webkit-scrollbar-track {
-            border-radius: 10px;
             box-shadow: inset 0 0 6px rgba(23, 0, 73, 0.3);
         }
         
@@ -52,7 +50,7 @@
             background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, #ff0000), color-stop(1, #ff8800));
             border-radius: 10px;
         }
-
+        
         body {
             font-family: 'Exo 2', sans-serif;
             background-color: var(--dark-bg);
@@ -432,35 +430,52 @@
     border: none;
 }
 }
+ #svgBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    pointer-events: none;   /* ignore clicks */
+    z-index: -9991;            /* push behind everything */
+    margin: 0;
+    padding: 0;
+  }
+  /* background container: fixed & behind everything */
+  #svg-bg-container {
+    position: fixed;
+    inset: 0;               /* top:0; right:0; bottom:0; left:0 */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;   /* let clicks pass through */
+    z-index: -1;            /* sits behind page content */
+  }
+
+  /* object should fill container */
+  #svgBg {
+    width: 100%;
+    height: 100%;
+    display: block;         /* removes default inline gaps in some browsers */
+  }
+
 
     </style>
      <link rel="stylesheet" href="responsive-life-simulation.css">
 </head>
 <body id="body">
-    <svg id="background-animation" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-        <defs>
-            <linearGradient id="polygon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ff0000"><animate attributeName="stop-color" values="#ff0000; #ff8800; #ff0000" dur="10s" repeatCount="indefinite"></animate></stop>
-                <stop offset="100%" stop-color="#ff8800"><animate attributeName="stop-color" values="#ff8800; #ff0000; #ff8800" dur="10s" repeatCount="indefinite"></animate></stop>
-            </linearGradient>
-            <pattern id="polygon-pattern" patternUnits="userSpaceOnUse" width="120" height="140" patternTransform="scale(1.5)">
-                <g stroke="rgba(255, 255, 255, 0.05)" stroke-width="1">
-                    <path d="M120 35 L120 105 L60 140 L60 70 Z" fill="black"></path>
-                    <path d="M0 35 L60 70 L60 140 L0 105 Z" fill="url(#polygon-gradient)"></path>
-                    <path d="M60 0 L120 35 L60 70 L0 35 Z" fill="url(#polygon-gradient)" opacity="0.6"></path>
-                </g>
-            </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="#000000"></rect>
-        <rect width="100%" height="100%" fill="url(#polygon-pattern)"></rect>
-    </svg>
 
-    <!-- Project Header -->
-    
+<div id="svg-bg-container" aria-hidden="true">
+  <object id="svgBg" data="./bg/bgd2.svg" type="image/svg+xml"></object>
+</div>
 </body>
 <script>
+    const svgObject = document.getElementById('svgBg');
+    //svgObject.data = `./bg/bgd5.svg`;
+    svgObject.data = `./bg/bgd${Math.floor(((Math.random() * 1000)%5)+1)}.svg`;
   localStorage.setItem("idnow", 'projects');
-    let projectname = localStorage.getItem("projectname") || "sahasam";
+    let projectname =  localStorage.getItem("projectname") || "sahasam";
     console.log(projectname || "No project name found");
     document.getElementById("title").innerText = projectname.toUpperCase() + " | Godson M D Portfolio";
     const details = document.getElementById('body');
@@ -595,15 +610,3 @@ loadProject(projectname);
 </script>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
