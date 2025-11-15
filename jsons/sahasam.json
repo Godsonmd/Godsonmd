@@ -1,0 +1,110 @@
+{
+  "projectHeader": {
+    "title": "Sahasam – Web-Based Adventure Game (Prototype)",
+    "subtitle": "A Phaser.js–powered adventure game inspired by classic GBA Pokémon titles. Built during an internship at NarrowLabs Ltd., featuring an overworld, mini-games, and AWS-integrated gameplay.",
+    "liveDemoLink": "https://godsonmd.github.io/Sahasam-Game/Front_Page.html",
+    "gitlink": "https://github.com/Godsonmd/Sahasam-Game"
+  },
+
+  "projectContent": {
+    "thumbnail": {
+      "src": "https://godsonmd.github.io/Godsonmd/images/sahasam-thumbnail.png",
+      "alt": "Sahasam Game Thumbnail"
+    },
+
+    "projectOverview": [
+      "Sahasam is a 2D adventure game inspired by GBA Pokémon-style exploration. Players navigate a jungle-themed overworld and an underground castle environment, solve challenges, and play multiple mini-games.",
+      "The game was originally developed as part of an internship project at NarrowLabs Ltd. to support a promotional campaign for the Malayalam movie Sahasam, which was later shelved.",
+      "The prototype features a fully playable overworld and eight integrated mini-games, built using Phaser.js and supported by an AWS backend for player data, APIs, and internal systems."
+    ],
+
+    "technologyStack": [
+      { "name": "Phaser.js", "icon": "fas fa-gamepad" },
+      { "name": "AWS DynamoDB", "icon": "fas fa-database" },
+      { "name": "AWS Lambda (Python)", "icon": "fab fa-python" },
+      { "name": "API Gateway", "icon": "fas fa-network-wired" },
+      { "name": "EC2 Hosting", "icon": "fas fa-server" },
+      { "name": "SNS Notifications", "icon": "fas fa-bell" },
+      { "name": "Tiled Map Editor", "icon": "fas fa-th" },
+      { "name": "HTML5", "icon": "fab fa-html5" },
+      { "name": "CSS3", "icon": "fab fa-css3-alt" },
+      { "name": "JavaScript", "icon": "fab fa-js-square" }
+    ],
+
+    "keyFeatures": [
+      {
+        "title": "Overworld Exploration",
+        "items": [
+          "Jungle and medieval-themed areas",
+          "Underground castle maze",
+          "Tile-based maps built using Tiled",
+          "Interactive world elements"
+        ]
+      },
+      {
+        "title": "Mini-Games (8 Total)",
+        "items": [
+          "Tile Unscramble",
+          "Block Jump",
+          "Flappy Bird–style challenge",
+          "Spinning prize wheel",
+          "Maze code entry challenge",
+          "And more mini-games integrated into gameplay"
+        ]
+      },
+      {
+        "title": "Gameplay Systems",
+        "items": [
+          "Character movement and collision",
+          "Scene transitions between overworld and mini-games",
+          "Reward collection and progression",
+          "Environment-based triggers"
+        ]
+      },
+      {
+        "title": "AWS Backend Integration",
+        "items": [
+          "Player info and game state stored in DynamoDB",
+          "Lambda functions for server logic",
+          "REST API via API Gateway",
+          "SNS for notifications and messaging"
+        ]
+      },
+      {
+        "title": "Prototype Limitations",
+        "items": [
+          "OTP authentication (planned)",
+          "Sprite updates (pending)",
+          "Dialogue system (not implemented)",
+          "Payment flow (incomplete)"
+        ]
+      }
+    ],
+
+    "developmentProcess": [
+      "Sahasam was developed as part of an internship project to demonstrate the integration of web-based game mechanics with cloud backend services. The team used Phaser.js for the frontend and AWS for data and API systems.",
+      "The overworld and levels were designed with the Tiled map editor, combining custom and medieval fantasy tilesets to create an engaging environment.",
+      "Mini-games were designed individually by team members and later integrated into the main adventure flow.",
+      "The backend architecture was built using AWS Lambda, DynamoDB, and API Gateway, allowing scalable and serverless data management for players and game state.",
+      "Although the promotional campaign was shelved, the game continued development as a functional prototype and now serves as a portfolio project showcasing frontend–backend integration."
+    ],
+
+    "screenshots": [
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam-thumbnail.png", "alt": "Front Page" },
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam.png", "alt": "Signup Page" },
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(2).png", "alt": "Home Page" },
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(3).png", "alt": "Main Gameplay" },
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(4).png", "alt": "Mini Game" },
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(5).png", "alt": "Prize Spin" },
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(6).png", "alt": "Cave Entrance" },
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(7).png", "alt": "Maze Center" },
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(8).png", "alt": "Guess Code Entry" },
+      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(9).png", "alt": "Creators Page" }
+    ],
+
+    "liveDemo": {
+      "iframeSrc": "https://godsonmd.github.io/Sahasam-Game/Front_Page.html",
+      "alt": "Live demo of Sahasam Game"
+    }
+  }
+}
