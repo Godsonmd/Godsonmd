@@ -1,0 +1,104 @@
+<svg id="background-animation" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice"
+     style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;">
+
+  <defs>
+    <linearGradient id="wave-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0000">
+        <animate attributeName="stop-color" values="#ff0000; #ff8800; #ff0000" dur="10s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#ff8800">
+        <animate attributeName="stop-color" values="#ff8800; #ff0000; #ff8800" dur="10s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <radialGradient id="moon-grad" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffd88a"/>
+      <stop offset="45%" stop-color="#ffb04d"/>
+      <stop offset="100%" stop-color="#ff7a00"/>
+    </radialGradient>
+
+    <filter id="moon-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <linearGradient id="shoot-grad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffb36a" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ff6a00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#000"/>
+
+  <path d="M0 660 Q480 480 960 660 T1920 660 V1080 H0 Z"
+        fill="url(#wave-grad)" opacity="0.6">
+    <animateTransform attributeName="transform" type="translate"
+                      values="0 0; 0 -30; 0 0" dur="7s" repeatCount="indefinite"/>
+  </path>
+
+  <path d="M0 720 Q480 860 960 720 T1920 720 V1080 H0 Z"
+        fill="#ff0000" opacity="0.18">
+    <animateTransform attributeName="transform" type="translate"
+                      values="0 0; 0 20; 0 0" dur="8s" repeatCount="indefinite"/>
+  </path>
+
+  <g id="stars"></g>
+
+<g id="moon-group" transform="translate(1700,200)">
+    <circle cx="0" cy="0" r="90" fill="#fff"/>
+    <circle cx="28" cy="-8" r="78" fill="#000"/>
+</g>
+  <script type="application/ecmascript"><![CDATA[
+    (function() {
+      const svg = document.getElementById('background-animation');
+      const starsG = document.getElementById('stars');
+
+      // create many small twinkling stars
+      const STAR_COUNT = 140;
+      for (let i = 0; i < STAR_COUNT; i++) {
+        const cx = Math.random() * 1920;
+        const cy = Math.random() * 520; // upper area more star-dense
+        const r = Math.random() * 1.6 + 0.4;
+        const opacity = 0.3 + Math.random() * 0.7;
+
+        const s = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        s.setAttribute('cx', cx);
+        s.setAttribute('cy', cy);
+        s.setAttribute('r', r);
+        s.setAttribute('fill', 'white');
+        s.setAttribute('opacity', opacity);
+        s.setAttribute('class', 'star');
+
+        // add tiny twinkle animation with random timing
+        const dur = (1.5 + Math.random() * 3).toFixed(2) + 's';
+        const begin = (Math.random() * 6).toFixed(2) + 's';
+        const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        anim.setAttribute('attributeName', 'opacity');
+        anim.setAttribute('values', Math.max(0.05, opacity - 0.2) + ';' + Math.min(1, opacity + 0.3) + ';' + Math.max(0.05, opacity - 0.2));
+        anim.setAttribute('dur', dur);
+        anim.setAttribute('begin', begin);
+        anim.setAttribute('repeatCount', 'indefinite');
+        s.appendChild(anim);
+
+        starsG.appendChild(s);
+      }
+
+      // shooting stars: choose a shooter, set its animateMotion path, and trigger
+      
+
+      // accessibility: reduce motion if user prefers reduced motion
+      try {
+        const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (mq && mq.matches) {
+          // stop shooting stars and reduce twinkle speeds
+          // remove scheduled shooters by replacing scheduleNext with no-op
+        }
+      } catch (e) {}
+
+    })();
+  ]]></script>
+</svg>

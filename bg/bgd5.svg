@@ -1,0 +1,124 @@
+<svg id="city-eve" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice"
+     style="position: fixed; inset:0; width:100vw; height:100vh; z-index:-1;">
+
+  <defs>
+    <linearGradient id="sky-eve" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ff4800"/>
+      <stop offset="40%"  stop-color="#ff4800cc"/>
+      <stop offset="100%" stop-color="#ff4800aa"/>
+    </linearGradient>
+
+    <linearGradient id="bld-far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#000"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+
+    <linearGradient id="bld-mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#000"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+
+    <linearGradient id="bld-front" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#000"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+
+    <linearGradient id="win-warm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="gold"/>
+      <stop offset="100%" stop-color="gold"/>
+    </linearGradient>
+
+    <g id="cloud-shape">
+      <path d="M0 20 q20 -30 60 -18 q18 -28 60 -6 q40 -6 80 22 q26 18 12 44
+               q-12 18 -60 22 q-40 6 -88 -6 q-34 8 -76 -16 z"/>
+    </g>
+  </defs>
+
+  <!-- background -->
+  <rect width="100%" height="100%" fill="url(#sky-eve)"/>
+
+  <!-- clouds group (distant) with internal animations -->
+  <g id="clouds" opacity="0.45" fill="#fff">
+    <use href="#cloud-shape" x="100" y="120" transform="translate(0,0) scale(1.2)">
+      <animateTransform attributeName="transform" type="translate"
+                        values="0 0; 1600 0; 0 0" dur="85s" repeatCount="indefinite" />
+    </use>
+
+    <use href="#cloud-shape" x="600" y="100" transform="translate(0,0) scale(0.9)">
+      <animateTransform attributeName="transform" type="translate"
+                        values="0 0; 1700 0; 0 0" dur="110s" repeatCount="indefinite" />
+    </use>
+
+    <use href="#cloud-shape" x="1200" y="80" transform="translate(0,0) scale(1.4)">
+      <animateTransform attributeName="transform" type="translate"
+                        values="0 0; 1900 0; 0 0" dur="130s" repeatCount="indefinite" />
+    </use>
+  </g>
+
+  <!-- FAR skyline -->
+  <g id="skyline-far" opacity="0.55" fill="url(#bld-far)" transform="translate(0,140)">
+    <rect x="50" y="530" width="180" height="240"/>
+    <rect x="260" y="540" width="140" height="280"/>
+    <rect x="430" y="560" width="110" height="260"/>
+    <rect x="580" y="520" width="180" height="300"/>
+    <rect x="820" y="540" width="150" height="280"/>
+    <rect x="1020" y="500" width="220" height="320"/>
+    <rect x="1280" y="560" width="120" height="260"/>
+    <rect x="1450" y="540" width="150" height="280"/>
+    <rect x="1630" y="520" width="200" height="300"/>
+  </g>
+
+  <!-- MID skyline with a tiny parallax animation (inside group) -->
+  <g id="skyline-mid" opacity="0.75" fill="url(#bld-mid)" transform="translate(0,240)">
+    <rect x="120"  y="480" width="260" height="360" rx="6"/>
+    <rect x="440"  y="420" width="310" height="420" rx="8"/>
+    <rect x="820"  y="460" width="260" height="380" rx="6"/>
+    <rect x="1120" y="440" width="300" height="400" rx="8"/>
+
+    <!-- subtle parallax motion for mid skyline -->
+    <animateTransform attributeName="transform" type="translate"
+                      values="0,240; -6,240; 0,240" dur="30s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- FRONT skyline with slightly larger parallax -->
+  <g id="skyline-front" opacity="0.95" fill="url(#bld-front)" transform="translate(0,330)">
+    <g>
+      <rect x="160" y="460" width="240" height="400" rx="10"/>
+      <g>
+        <rect x="190" y="500" width="14" height="20" fill="url(#win-warm)" opacity="0">
+          <animate attributeName="opacity" values="0;1;0" dur="6s" begin="1s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="230" y="540" width="14" height="20" fill="url(#win-warm)" opacity="0">
+          <animate attributeName="opacity" values="0;1;0" dur="7s" begin="2.3s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="210" y="590" width="14" height="20" fill="url(#win-warm)" opacity="0">
+          <animate attributeName="opacity" values="0;1;0" dur="4.8s" begin="3.1s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+
+    <g>
+      <rect x="520" y="380" width="340" height="500" rx="12"/>
+      <rect x="678" y="346" width="24" height="34" rx="4"/>
+      <circle cx="690" cy="345" r="6"/>
+      <rect x="560" y="440" width="12" height="18" fill="url(#win-warm)" opacity="0.18"/>
+      <rect x="600" y="480" width="12" height="18" fill="url(#win-warm)" opacity="0.18"/>
+      <rect x="640" y="520" width="12" height="18" fill="url(#win-warm)" opacity="0.18"/>
+    </g>
+
+    <g>
+      <rect x="920" y="460" width="260" height="420" rx="10"/>
+      <rect x="980" y="510" width="14" height="20" fill="url(#win-warm)" opacity="0.1"/>
+      <rect x="1000" y="540" width="14" height="20" fill="url(#win-warm)" opacity="0.18"/>
+    </g>
+
+    <!-- subtle parallax for front skyline -->
+    <animateTransform attributeName="transform" type="translate"
+                      values="0,330; -12,330; 0,330" dur="36s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- ground rectangle -->
+  <rect x="0" y="890" width="1920" height="200" fill="#000"/>
+
+</svg>
