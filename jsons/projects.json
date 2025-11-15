@@ -2,6 +2,15 @@
   "projects": [
     {
       "public":true,
+      "title": "Sahasam – Web-Based Adventure Game",
+      "thumbnail": "./images/sahasam-thumbnail.png",
+      "alt": "Sahasam Game Project Thumbnail",
+      "description": "A 2D adventure game inspired by GBA Pokémon titles, featuring an overworld and multiple mini-games. Developed using Phaser.js during an internship at NarrowLabs Ltd., with AWS integration for backend services.",
+      "technologies": ["Phaser.js", "AWS DynamoDB", "AWS Lambda", "API Gateway", "EC2 Hosting", "SNS Notifications", "Tiled Map Editor", "HTML/CSS/JS"],
+      "link": "sahasam"
+    },
+    {
+      "public":true,
       "title": "Interactive Life Simulation Game",
       "thumbnail": "./images/life-sim-thumbnail.png",
       "alt": "Life Simulation Game Project Thumbnail",
@@ -28,7 +37,7 @@
       "link": "icars"
     },
     {
-      "public":false,
+      "public":true,
       "title": "Tic Tac Toe – 2 Player Game",
       "thumbnail": "images/TTT-thumbnail.png",
       "alt": "TTT Project Thumbnail",
