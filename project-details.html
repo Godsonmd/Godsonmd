@@ -472,9 +472,13 @@
 </body>
 <script>
     const svgObject = document.getElementById('svgBg');
-    //svgObject.data = `./bg/bgd5.svg`;
-    svgObject.data = `./bg/bgd${Math.floor(((Math.random() * 1000)%5)+1)}.svg`;
-  localStorage.setItem("idnow", 'projects');
+    //svgObject.data = `./bg/bgd6.svg`;
+    const filecount = 5;
+    const prev =localStorage.getItem("bgid") || 1;
+    const now = (( (prev - 1) % filecount + 1 ) % filecount) + 1;
+    localStorage.setItem("bgid", now);
+    svgObject.data = `./bg/bgd${now}.svg`;
+    localStorage.setItem("idnow", 'projects');
     let projectname =  localStorage.getItem("projectname") || "sahasam";
     console.log(projectname || "No project name found");
     document.getElementById("title").innerText = projectname.toUpperCase() + " | Godson M D Portfolio";
