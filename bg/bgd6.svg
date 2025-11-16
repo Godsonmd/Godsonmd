@@ -1,0 +1,442 @@
+<svg id="background-animation" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice"
+     style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events:none;">
+
+  <defs>
+    <!-- Shooting star gradient -->
+    <linearGradient id="shooting-star-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffcc88" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#ff9944" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffdd99" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Moon glow -->
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Lava glow -->
+    <filter id="lava-glow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Lava gradient -->
+    <linearGradient id="lava-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffff00"/>
+      <stop offset="30%" stop-color="#ff6600"/>
+      <stop offset="70%" stop-color="#ff0000"/>
+      <stop offset="100%" stop-color="#aa0000"/>
+    </linearGradient>
+
+    <!-- Smoke gradient -->
+    <radialGradient id="smoke-grad">
+      <stop offset="0%" stop-color="#666666" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#333333" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Black background -->
+  <rect width="100%" height="100%" fill="#000"/>
+
+  <!-- Stars -->
+  <g id="stars"></g>
+
+  <!-- Shooting stars group -->
+  <g id="shooting-stars"></g>
+
+  <!-- Moon -->
+  <circle cx="1200" cy="350" r="65" fill="#ff8822" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="6s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Volcano -->
+  <g id="volcano3" transform="translate(-1200,-800) scale(1.8)">
+    <!-- Main volcano body - dark rocky mountain -->
+    <path d="M 880,620 L 600,1080 L 1320,1080 L 1040,620  Z" fill="#1a0f0a" stroke="#000" stroke-width="3"/>
+    
+    <!-- Inner volcano darker shadow 0d0705--> 
+    <path d="M 880,620 L 700,1080 L 1220,1080 L 1040,620 Z" fill="#0d0705" opacity="0.8"/>
+    
+    <!-- Volcano crater rim -->
+    <ellipse cx="960" cy="620" rx="80" ry="25" fill="#2a1510" stroke="#000" stroke-width="2"/>
+    
+    <!-- Lava pool inside crater -->
+    <ellipse cx="960" cy="625" rx="65" ry="20" fill="url(#lava-grad)" filter="url(#lava-glow)">
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+    
+    <!-- Lava glow reflection -->
+    <ellipse cx="960" cy="628" rx="50" ry="15" fill="#ffaa00" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Lava streams flowing down -->
+    <path d="M 940,650 Q 935,660 930,800 Q 928,900 925,1000 L 925,1080 L 935,1080 L 935,1000 Q 938,900 940,800 Q 945,650 950,650 Z"
+          fill="url(#lava-grad)" opacity="0.8" filter="url(#lava-glow)">
+      <animate attributeName="opacity" values="0.8;0.6;0.8" dur="3s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M 970,650 Q 975,650 980,800 Q 982,900 985,1000 L 985,1080 L 995,1080 L 995,1000 Q 992,900 990,800 Q 985,660 980,650 Z"
+          fill="url(#lava-grad)" opacity="0.8" filter="url(#lava-glow)">
+      <animate attributeName="opacity" values="0.8;0.6;0.8" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Smoke/ash clouds -->
+    <g id="smoke">
+      <ellipse cx="960" cy="650" rx="60" ry="40" fill="url(#smoke-grad)">
+        <animate attributeName="cy" values="600;550;600" dur="8s" repeatCount="indefinite"/>
+        <animate attributeName="rx" values="60;90;60" dur="8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0;0" dur="8s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="920" cy="620" rx="50" ry="35" fill="url(#smoke-grad)">
+        <animate attributeName="cy" values="600;500;520" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="rx" values="50;80;50" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0" dur="9s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="1000" cy="630" rx="55" ry="38" fill="url(#smoke-grad)">
+        <animate attributeName="cy" values="600;500;530" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="rx" values="55;85;55" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.85;0;0" dur="7s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+
+    <!-- Lava sparks/particles -->
+    <g id="sparks">
+      <circle cx="950" cy="600" r="2" fill="#ffff00">
+        <animate attributeName="cy" values="600;500;600" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="970" cy="605" r="1.5" fill="#ff8800">
+        <animate attributeName="cy" values="605;520;605" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="955" cy="608" r="1.8" fill="#ffaa00">
+        <animate attributeName="cy" values="608;510;608" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="965" cy="603" r="1.5" fill="#ffff66">
+        <animate attributeName="cy" values="603;515;503" dur="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="940" cy="600" r="2" fill="#ffff00">
+        <animate attributeName="cy" values="600;550;600" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="960" cy="605" r="1.5" fill="#ff8800">
+        <animate attributeName="cy" values="605;530;605" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="965" cy="608" r="1.8" fill="#ffaa00">
+        <animate attributeName="cy" values="608;500;608" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="975" cy="603" r="1.5" fill="#ffff66">
+        <animate attributeName="cy" values="603;535;503" dur="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  <g id="volcano">
+    <!-- Main volcano body - dark rocky mountain -->
+    <path d="M 880,620 L 600,1080 L 1320,1080 L 1040,620  Z" fill="#1a0f0a" stroke="#000" stroke-width="3"/>
+    
+    <!-- Inner volcano darker shadow 0d0705--> 
+    <path d="M 880,620 L 700,1080 L 1220,1080 L 1040,620 Z" fill="#0d0705" opacity="0.8"/>
+    
+    <!-- Volcano crater rim -->
+    <ellipse cx="960" cy="620" rx="80" ry="25" fill="#2a1510" stroke="#000" stroke-width="2"/>
+    
+    <!-- Lava pool inside crater -->
+    <ellipse cx="960" cy="625" rx="65" ry="20" fill="url(#lava-grad)" filter="url(#lava-glow)">
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+    
+    <!-- Lava glow reflection -->
+    <ellipse cx="960" cy="628" rx="50" ry="15" fill="#ffaa00" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Lava streams flowing down -->
+    <path d="M 940,650 Q 935,660 930,800 Q 928,900 925,1000 L 925,1080 L 935,1080 L 935,1000 Q 938,900 940,800 Q 945,650 950,650 Z"
+          fill="url(#lava-grad)" opacity="0.8" filter="url(#lava-glow)">
+      <animate attributeName="opacity" values="0.8;0.6;0.8" dur="3s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M 970,650 Q 975,650 980,800 Q 982,900 985,1000 L 985,1080 L 995,1080 L 995,1000 Q 992,900 990,800 Q 985,660 980,650 Z"
+          fill="url(#lava-grad)" opacity="0.8" filter="url(#lava-glow)">
+      <animate attributeName="opacity" values="0.8;0.6;0.8" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Smoke/ash clouds -->
+    <g id="smoke">
+      <ellipse cx="960" cy="650" rx="60" ry="40" fill="url(#smoke-grad)">
+        <animate attributeName="cy" values="600;550;600" dur="8s" repeatCount="indefinite"/>
+        <animate attributeName="rx" values="60;90;60" dur="8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0;0" dur="8s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="920" cy="620" rx="50" ry="35" fill="url(#smoke-grad)">
+        <animate attributeName="cy" values="600;500;520" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="rx" values="50;80;50" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0" dur="9s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="1000" cy="630" rx="55" ry="38" fill="url(#smoke-grad)">
+        <animate attributeName="cy" values="600;500;530" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="rx" values="55;85;55" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.85;0;0" dur="7s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+
+    <!-- Lava sparks/particles -->
+    <g id="sparks">
+      <circle cx="950" cy="600" r="2" fill="#ffff00">
+        <animate attributeName="cy" values="600;500;600" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="970" cy="605" r="1.5" fill="#ff8800">
+        <animate attributeName="cy" values="605;520;605" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="955" cy="608" r="1.8" fill="#ffaa00">
+        <animate attributeName="cy" values="608;510;608" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="965" cy="603" r="1.5" fill="#ffff66">
+        <animate attributeName="cy" values="603;515;503" dur="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="940" cy="600" r="2" fill="#ffff00">
+        <animate attributeName="cy" values="600;550;600" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="960" cy="605" r="1.5" fill="#ff8800">
+        <animate attributeName="cy" values="605;530;605" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="965" cy="608" r="1.8" fill="#ffaa00">
+        <animate attributeName="cy" values="608;500;608" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="975" cy="603" r="1.5" fill="#ffff66">
+        <animate attributeName="cy" values="603;535;503" dur="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  <g id="volcano2" transform="translate(300,-500) scale(1.5)">
+    <!-- Main volcano body - dark rocky mountain -->
+    <path d="M 880,620 L 600,1080 L 1320,1080 L 1040,620  Z" fill="#1a0f0a" stroke="#000" stroke-width="3"/>
+    
+    <!-- Inner volcano darker shadow 0d0705--> 
+    <path d="M 880,620 L 700,1080 L 1220,1080 L 1040,620 Z" fill="#0d0705" opacity="0.8"/>
+    
+    <!-- Volcano crater rim -->
+    <ellipse cx="960" cy="620" rx="80" ry="25" fill="#2a1510" stroke="#000" stroke-width="2"/>
+    
+    <!-- Lava pool inside crater -->
+    <ellipse cx="960" cy="625" rx="65" ry="20" fill="url(#lava-grad)" filter="url(#lava-glow)">
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+    
+    <!-- Lava glow reflection -->
+    <ellipse cx="960" cy="628" rx="50" ry="15" fill="#ffaa00" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Lava streams flowing down -->
+    <path d="M 940,650 Q 935,660 930,800 Q 928,900 925,1000 L 925,1080 L 935,1080 L 935,1000 Q 938,900 940,800 Q 945,650 950,650 Z"
+          fill="url(#lava-grad)" opacity="0.8" filter="url(#lava-glow)">
+      <animate attributeName="opacity" values="0.8;0.6;0.8" dur="3s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M 970,650 Q 975,650 980,800 Q 982,900 985,1000 L 985,1080 L 995,1080 L 995,1000 Q 992,900 990,800 Q 985,660 980,650 Z"
+          fill="url(#lava-grad)" opacity="0.8" filter="url(#lava-glow)">
+      <animate attributeName="opacity" values="0.8;0.6;0.8" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Smoke/ash clouds -->
+    <g id="smoke2">
+      <ellipse cx="960" cy="650" rx="60" ry="40" fill="url(#smoke-grad)">
+        <animate attributeName="cy" values="600;550;600" dur="8s" repeatCount="indefinite"/>
+        <animate attributeName="rx" values="60;90;60" dur="8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0;0" dur="8s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="920" cy="620" rx="50" ry="35" fill="url(#smoke-grad)">
+        <animate attributeName="cy" values="600;500;520" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="rx" values="50;80;50" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0" dur="9s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="1000" cy="630" rx="55" ry="38" fill="url(#smoke-grad)">
+        <animate attributeName="cy" values="600;500;530" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="rx" values="55;85;55" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.85;0;0" dur="7s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+
+    <!-- Lava sparks/particles -->
+    <g id="sparks2">
+      <circle cx="950" cy="600" r="2" fill="#ffff00">
+        <animate attributeName="cy" values="600;500;600" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="970" cy="605" r="1.5" fill="#ff8800">
+        <animate attributeName="cy" values="605;520;605" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="955" cy="608" r="1.8" fill="#ffaa00">
+        <animate attributeName="cy" values="608;510;608" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="965" cy="603" r="1.5" fill="#ffff66">
+        <animate attributeName="cy" values="603;515;503" dur="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="940" cy="600" r="2" fill="#ffff00">
+        <animate attributeName="cy" values="600;550;600" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="960" cy="605" r="1.5" fill="#ff8800">
+        <animate attributeName="cy" values="605;530;605" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="965" cy="608" r="1.8" fill="#ffaa00">
+        <animate attributeName="cy" values="608;500;608" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="975" cy="603" r="1.5" fill="#ffff66">
+        <animate attributeName="cy" values="603;535;503" dur="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;0" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <script type="application/ecmascript"><![CDATA[
+    (function() {
+      const starsG = document.getElementById('stars');
+      const shootingStarsG = document.getElementById('shooting-stars');
+      const STAR_COUNT = 600;
+      
+      // Create static stars
+      for (let i = 0; i < STAR_COUNT; i++) {
+        const cx = Math.random() * 1920;
+        const cy = Math.random() * 1080;
+        const r = Math.random() * 0.8 + 0.2;
+        const baseOpacity = 0.3 + Math.random() * 0.6;
+
+        const star = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        star.setAttribute('cx', cx);
+        star.setAttribute('cy', cy);
+        star.setAttribute('r', r);
+        star.setAttribute('fill', '#ff9933');
+        star.setAttribute('opacity', baseOpacity);
+
+        const twinkle = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        twinkle.setAttribute('attributeName', 'opacity');
+        twinkle.setAttribute('values', `${Math.max(0.1, baseOpacity - 0.4)};${Math.min(1, baseOpacity + 0.5)};${Math.max(0.1, baseOpacity - 0.4)}`);
+        twinkle.setAttribute('dur', (0.6 + Math.random() * 2) + 's');
+        twinkle.setAttribute('begin', (Math.random() * 3) + 's');
+        twinkle.setAttribute('repeatCount', 'indefinite');
+        star.appendChild(twinkle);
+
+        starsG.appendChild(star);
+      }
+
+      // Create shooting star function
+      function createShootingStar() {
+        if (!shootingStarsG) return;
+
+        const startX = -100;
+        const startY = 100 + Math.random() * 300;
+        const endX = 2000;
+        const endY = startY + 100 + Math.random() * 100;
+        const duration = 1.5 + Math.random() * 1;
+
+        // Calculate the direction vector for the tail
+        const dx = endX - startX;
+        const dy = endY - startY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const tailLength = 80;
+        
+        // Tail should point opposite to motion direction
+        const tailDx = -(dx / distance) * tailLength;
+        const tailDy = -(dy / distance) * tailLength;
+
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        
+        // Star head
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', startX);
+        circle.setAttribute('cy', startY);
+        circle.setAttribute('r', '3');
+        circle.setAttribute('fill', '#ffdd99');
+        circle.setAttribute('opacity', '0');
+        
+        // Trail
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', startX);
+        line.setAttribute('y1', startY);
+        line.setAttribute('x2', startX + tailDx);
+        line.setAttribute('y2', startY + tailDy);
+        line.setAttribute('stroke', 'url(#shooting-star-grad)');
+        line.setAttribute('stroke-width', '3');
+        line.setAttribute('stroke-linecap', 'round');
+        line.setAttribute('opacity', '0');
+
+        g.appendChild(circle);
+        g.appendChild(line);
+        shootingStarsG.appendChild(g);
+
+        // Animate position and opacity
+        let startTime = null;
+        function animate(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const progress = (timestamp - startTime) / (duration * 1000);
+
+          if (progress < 1) {
+            const currentX = startX + (endX - startX) * progress;
+            const currentY = startY + (endY - startY) * progress;
+            
+            circle.setAttribute('cx', currentX);
+            circle.setAttribute('cy', currentY);
+            line.setAttribute('x1', currentX);
+            line.setAttribute('y1', currentY);
+            line.setAttribute('x2', currentX + tailDx);
+            line.setAttribute('y2', currentY + tailDy);
+
+            // Fade in and out
+            let opacity = 0;
+            if (progress < 0.1) {
+              opacity = progress / 0.1;
+            } else if (progress > 0.9) {
+              opacity = (1 - progress) / 0.1;
+            } else {
+              opacity = 1;
+            }
+            
+            circle.setAttribute('opacity', opacity);
+            line.setAttribute('opacity', opacity);
+
+            requestAnimationFrame(animate);
+          } else {
+            try { shootingStarsG.removeChild(g); } catch(e){}
+          }
+        }
+        
+        requestAnimationFrame(animate);
+      }
+
+      // Create shooting stars at intervals
+      setInterval(createShootingStar, 5000);
+      setTimeout(createShootingStar, 1000); // First one after 1 second
+    })();
+  ]]></script>
+</svg>
