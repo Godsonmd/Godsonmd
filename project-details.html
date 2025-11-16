@@ -473,7 +473,7 @@
 <script>
     const svgObject = document.getElementById('svgBg');
     //svgObject.data = `./bg/bgd6.svg`;
-    const filecount = 5;
+    const filecount = 6;
     const prev =localStorage.getItem("bgid") || 1;
     const now = (( (prev - 1) % filecount + 1 ) % filecount) + 1;
     localStorage.setItem("bgid", now);
@@ -614,3 +614,4 @@ loadProject(projectname);
 </script>
 
 </html>
+
