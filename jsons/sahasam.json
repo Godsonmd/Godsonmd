@@ -8,7 +8,7 @@
 
   "projectContent": {
     "thumbnail": {
-      "src": "https://godsonmd.github.io/Godsonmd/images/sahasam-thumbnail.png",
+      "src": "./images/sahasam-thumbnail.png",
       "alt": "Sahasam Game Thumbnail"
     },
 
@@ -90,16 +90,16 @@
     ],
 
     "screenshots": [
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam-thumbnail.png", "alt": "Front Page" },
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam.png", "alt": "Signup Page" },
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(2).png", "alt": "Home Page" },
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(3).png", "alt": "Main Gameplay" },
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(4).png", "alt": "Mini Game" },
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(5).png", "alt": "Prize Spin" },
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(6).png", "alt": "Cave Entrance" },
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(7).png", "alt": "Maze Center" },
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(8).png", "alt": "Guess Code Entry" },
-      { "src": "https://godsonmd.github.io/Godsonmd/images/sahasam%20(9).png", "alt": "Creators Page" }
+      { "src": "./images/sahasam-thumbnail.png", "alt": "Front Page" },
+      { "src": "./images/sahasam.png", "alt": "Signup Page" },
+      { "src": "./images/sahasam (2).png", "alt": "Home Page" },
+      { "src": "./images/sahasam (3).png", "alt": "Main Gameplay" },
+      { "src": "./images/sahasam (4).png", "alt": "Mini Game" },
+      { "src": "./images/sahasam (5).png", "alt": "Prize Spin" },
+      { "src": "./images/sahasam (6).png", "alt": "Cave Entrance" },
+      { "src": "./images/sahasam (7).png", "alt": "Maze Center" },
+      { "src": "./images/sahasam (8).png", "alt": "Guess Code Entry" },
+      { "src": "./images/sahasam (9).png", "alt": "Creators Page" }
     ],
 
     "liveDemo": {
