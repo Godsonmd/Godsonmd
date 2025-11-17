@@ -1,0 +1,49 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='298' height='49.7' viewBox='0 0 600 100'>
+
+<rect fill='#000' width='600' height='100'/>
+
+<g stroke='#000' stroke-width='0' stroke-miterlimit='10' stroke-opacity='1'>
+
+
+<circle fill='#700000' cx='0' cy='0' r='50'/>
+<circle fill='#B00000' cx='100' cy='0' r='50'/>
+<circle fill='#000000' cx='200' cy='0' r='50'/>
+<circle fill='#D10000' cx='300' cy='0' r='50'/>
+<circle fill='#8A1E00' cx='400' cy='0' r='50'/>
+<circle fill='#000000' cx='500' cy='0' r='50'/>
+<circle fill='#700000' cx='600' cy='0' r='50'/>
+
+
+<circle fill='#000000' cx='-50' cy='50' r='50'/>
+<circle fill='#700000' cx='50' cy='50' r='50'/>
+<circle fill='#8A1E00' cx='150' cy='50' r='50'/>
+<circle fill='#D10000' cx='250' cy='50' r='50'/>
+<circle fill='#B00000' cx='350' cy='50' r='50'/>
+<circle fill='#000000' cx='450' cy='50' r='50'/>
+<circle fill='#000000' cx='550' cy='50' r='50'/>
+<circle fill='#700000' cx='650' cy='50' r='50'/>
+
+<circle fill='#700000' cx='0' cy='100' r='50'/>
+<circle fill='#B00000' cx='100' cy='100' r='50'/>
+<circle fill='#D10000' cx='200' cy='100' r='50'/>
+<circle fill='#8A1E00' cx='300' cy='100' r='50'/>
+<circle fill='#B00000' cx='400' cy='100' r='50'/>
+<circle fill='#000000' cx='500' cy='100' r='50'/>
+<circle fill='#700000' cx='600' cy='100' r='50'/>
+
+<circle fill='#000000' cx='50' cy='150' r='50'/>
+<circle fill='#000000' cx='150' cy='150' r='50'/>
+<circle fill='#000000' cx='250' cy='150' r='50'/>
+<circle fill='#000000' cx='350' cy='150' r='50'/>
+<circle fill='#000000' cx='450' cy='150' r='50'/>
+<circle fill='#000000' cx='550' cy='150' r='50'/>
+
+<g>
+
+<path d="M 1,0 L 2,1 L 3,1   Z" fill="#f00" stroke="#f00" stroke-width="3" transform="translate(480,39.9) rotate(10)" />
+<path d="M 3.1,0 L 2.1,1 L 1,1 Z" fill="#fff" stroke="#f00" stroke-width="3" transform="translate(515,40) rotate(-15)" />
+<path d="M 3.1,0 L 2.1,1 L 1,1 Z" fill="#fff" stroke="#f00" stroke-width="3" transform="translate(498,60) rotate(15)" />
+      <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite"/>
+</g>
+</g>
+</svg>

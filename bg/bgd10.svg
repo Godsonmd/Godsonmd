@@ -1,0 +1,21 @@
+<svg id="background-animation" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> 
+    <defs> 
+        <linearGradient id="polygon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#111">
+                <animate attributeName="stop-color" values="#000; #000; #000; #f40; #000" dur="15s" repeatCount="indefinite"></animate>
+            </stop> 
+            <stop offset="100%" stop-color="#111">
+                <animate attributeName="stop-color" values="#000; #f00; #000; #000; #000" dur="15s" repeatCount="indefinite"></animate>
+            </stop>
+        </linearGradient>
+        <pattern id="polygon-pattern" patternUnits="userSpaceOnUse" width="120" height="140" patternTransform="scale(1.5)"> 
+            <g stroke="rgba(255, 255, 255, 0.0)" stroke-width="1"> 
+                <path d="M120 35 L120 105 L60 140 L60 70 Z" fill="black"></path> 
+                <path d="M0 35 L60 70 L60 140 L0 105 Z" fill="url(#polygon-gradient)"></path>
+                <path d="M60 0 L120 35 L60 70 L0 35 Z" fill="url(#polygon-gradient)" opacity="0.6"></path>
+            </g>
+        </pattern>
+    </defs> 
+    <rect width="100%" height="100%" fill="#000"></rect>
+    <rect width="100%" height="100%" fill="url(#polygon-pattern)"></rect>
+</svg>
