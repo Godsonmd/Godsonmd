@@ -796,6 +796,7 @@ const toggleitems = document.querySelectorAll("section, footer");
     toggleitems.forEach(titem => {
       titem.style.display = 'none';
     });
+    document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
     togglebtn.innerHTML = `
       <svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
         <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -833,3 +834,4 @@ const navLinks = document.querySelectorAll('.nav-link');
 </script>
 
 </html>
+
