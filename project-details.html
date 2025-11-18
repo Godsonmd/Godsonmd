@@ -59,7 +59,42 @@
             overflow-x: hidden;
             position: relative;
         }
+        nav.navbar {
+            position: fixed;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            background: rgba(10, 5, 20, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            z-index: 1000;
+            padding: 15px 0;
+        }
 
+        nav.navbar ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        nav.navbar a.nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        nav.navbar a.nav-link:hover,
+        nav.navbar a.nav-link.active {
+            color: var(--primary-blue);
+        }
         #background-animation {
             position: fixed;
             top: 0;
@@ -72,7 +107,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 10px;
         }
 
         /* Project Header */
@@ -297,6 +332,22 @@
         }
         /* For devices with a max-width of 700px */
 @media (max-width: 700px) {
+    nav.navbar {
+                top: auto;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+            }
+            nav.navbar ul {
+                flex-direction: row;
+                justify-content: space-around;
+                gap: 5px;
+            }
+            nav.navbar a.nav-link {
+        width: 20px;
+        height: 20px;
+    }
     .project-header {
         padding: 80px 15px 40px 15px;
     }
@@ -368,11 +419,54 @@
     footer {
         padding: 30px 20px;
         margin-top: 30px;
+        height: 200px;
     }
 }
 
 /* For devices with a max-width of 500px */
+@media (max-width: 360px) {
+    nav.navbar {
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        padding: 10px;
+    }
+
+    nav.navbar ul {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        gap: 5px;
+    }
+
+    nav.navbar a.nav-link {
+        width: 20px;
+        height: 20px;
+    }
+}
 @media (max-width: 500px) {
+    nav.navbar {
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        padding: 10px;
+    }
+
+    nav.navbar ul {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        gap: 1px;
+    }
+
+    nav.navbar a.nav-link {
+        width: 40px;
+        height: 40px;
+    }
     .project-header {
         padding: 60px 10px 30px 10px;
     }
@@ -469,22 +563,74 @@
 <div id="svg-bg-container" aria-hidden="true">
   <object id="svgBg" data="./bg/bgd2.svg" type="image/svg+xml"></object>
 </div>
+
+<nav class="navbar" >
+    <ul id="navbars">
+        <li>
+    <a href="#home" class="nav-link active" data-tooltip="Project Title" title="Project Title">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+        </svg>
+    </a>
+</li>
+
+<li>
+    <a href="#overview" class="nav-link" data-tooltip="Project Overview" title="Project Overview">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+    </a>
+</li>
+
+<li>
+    <a href="#features" class="nav-link" data-tooltip="Key Features" title="Key Features">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+    </a>
+</li>
+
+<li>
+    <a href="#process" class="nav-link" data-tooltip="Dev Process" title="Development Process">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+    </a>
+</li>
+
+<li>
+    <a href="#screenshots" class="nav-link" data-tooltip="Screenshots" title="Screenshots">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+    </a>
+</li>
+
+
+    </ul>
+</nav>
 </body>
 <script>
     const svgObject = document.getElementById('svgBg');
-    //svgObject.data = `./bg/bgd6.svg`;
     const filecount = 10;
-    const prev =localStorage.getItem("bgid") || 8;
+    const prev =localStorage.getItem("bgid") || 7;
     const now = (( (prev - 1) % filecount + 1 ) % filecount) + 1;
     localStorage.setItem("bgid", now);
     svgObject.data = `./bg/bgd${now}.svg`;
+    //svgObject.data = `./bg/bgd9.svg`;
     localStorage.setItem("idnow", 'projects');
     let projectname =  localStorage.getItem("projectname") || "sahasam";
-    console.log(projectname || "No project name found");
+    
     document.getElementById("title").innerText = projectname.toUpperCase() + " | Godson M D Portfolio";
     const details = document.getElementById('body');
     let SomeHTML = '';
     let backLink = "href='index.html'";
+    const nav_ul=document.getElementById("navbars");
     async function loadProject(projectname) {
     try {
         const res = await fetch(`./jsons/${projectname}.json`);
@@ -493,7 +639,7 @@
         }
         const data = await res.json();
         let p1=`
-        <section class="project-header">
+        <section class="project-header" id="home">
         <div class="container">
             <h1 class="project-title">${data.projectHeader.title}</h1>
             <p class="project-subtitle">${data.projectHeader.subtitle}</p>
@@ -504,10 +650,29 @@
             p1+=`
                 <a href="${data.projectHeader.liveDemoLink}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             `;
+            nav_ul.innerHTML+=`
+            <li>
+                <a href="#demo" class="nav-link" data-tooltip="Live Demo" title="Live Demo">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                    </svg>
+                </a>
+            </li>
+            `;
         }
-        else {
-            backLink='onclick="window.history.back()"';
-        }
+        const isMobile = /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
+  if (!isMobile) {
+        nav_ul.innerHTML+=`
+        <li>
+            <a class="nav-link" onclick="showtoggle()" id="toggle-btn" title="For Kids">
+                <svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="36" cy="12" r="9" fill="#DDDDDD"/>
+                </svg>
+            </a>
+        </li>
+        `;}
         let p2=`
                <a ${backLink} class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Projects</a> 
             </div>
@@ -515,19 +680,20 @@
     </section>
         `;
         let p3=`
-        <section class="project-content">
+        <section class="project-content" >
         <div class="container">
             <div class="glass-card">
                 <div class="project-image">
                     <img src="${data.projectContent.thumbnail.src}" alt="${data.projectContent.thumbnail.alt}">
                 </div>
-                
-                <h2 class="section-title">Project Overview</h2>
+                <section  id="overview"> 
+                <h2 class="section-title"  >Project Overview</h2>
         `;
         data.projectContent.projectOverview.forEach(para => {
             p3+=`<p>${para}</p><br>`;
         });
         let p4=`
+                </section>
                 <h2 class="section-title">Technology Stack</h2>
                 <div class="tech-stack">`;
         data.projectContent.technologyStack.forEach(tech => {
@@ -540,8 +706,8 @@
         });
         p4+=`
                 </div>
-                
-                <h2 class="section-title">Key Features</h2>
+                <section  id="features"> 
+                <h2 class="section-title" >Key Features</h2>
                 <div class="features-grid">
         `;
         data.projectContent.keyFeatures.forEach(feature => {
@@ -560,15 +726,19 @@
         });
         p4+=`
                 </div>
+                </section>
         `;
         let p5=`
-                <h2 class="section-title">Development Process</h2>
+                <section  id="process"> 
+                <h2 class="section-title" >Development Process</h2>
         `;
         data.projectContent.developmentProcess.forEach(para => {
             p5+=`<p>${para}</p><br>`;
         });
         let p6=`
-                <h2 class="section-title">Screenshots</h2>
+                </section>
+                <section class="project-content" id="screenshots"> 
+                <h2 class="section-title" >Screenshots</h2>
                 <div class="image-gallery">
         `;
         data.projectContent.screenshots.forEach(image => {
@@ -580,13 +750,16 @@
         });
         p6+=`
                 </div>
+                </section>
         `;
         if(data.projectHeader.liveDemoLink) {
             p6+=`
-                <h2 class="section-title">Live Demo</h2>
+                <section  id="demo"> 
+                <h2 class="section-title" >Live Demo</h2>
                 <div class="demo-video">
                     <iframe src="${data.projectContent.liveDemo.iframeSrc}" frameborder="0" allowfullscreen></iframe>
                 </div>
+                </section>
             `;
         }
         p6+=`
@@ -598,11 +771,12 @@
         details.innerHTML += SomeHTML;
         details.innerHTML += `
         <footer>
-        <div class="container">
-            <a ${backLink} class="back-link btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
-            <p>&copy; 2025 Godson M D. All Rights Reserved.</p>
-        </div>
-    </footer>
+            <div class="container">
+                <a ${backLink} class="back-link btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                <p>&copy; 2025 Godson M D. All Rights Reserved.</p>
+            </div>
+            <br>
+        </footer>
         `;
 
 
@@ -611,9 +785,51 @@
     }
 }
 loadProject(projectname);
+let isToggled = false;
+function showtoggle() {
+const toggleitems = document.querySelectorAll("section, footer");
+  isToggled = !isToggled;
+  const togglebtn = document.getElementById('toggle-btn');
+  if (!togglebtn) return;
+
+  if (isToggled) {
+    toggleitems.forEach(titem => {
+      titem.style.display = 'none';
+    });
+    togglebtn.innerHTML = `
+      <svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="12" r="9" fill="#DD0000"/>
+      </svg>`;
+  } else {
+    toggleitems.forEach(titem => {
+      titem.style.display = '';
+    });
+    togglebtn.innerHTML = `
+      <svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="36" cy="12" r="9" fill="#DDDDDD"/>
+      </svg>`;
+    
+  }
+}
+setTimeout(()=>{
+const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id], br[id]');
+
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+
+  sections.forEach(section => navObserver.observe(section));
+},2000);
 </script>
 
 </html>
-
-
-
