@@ -71,6 +71,7 @@
             border-radius: 25px;
             z-index: 1000;
             padding: 15px 0;
+            transition: all 1s;
         }
 
         nav.navbar ul {
@@ -95,6 +96,9 @@
         nav.navbar a.nav-link.active {
             color: var(--primary-blue);
         }
+        nav.navbar a.nav-link:active{
+            transform: scale(0.8);
+          }
         #background-animation {
             position: fixed;
             top: 0;
@@ -561,7 +565,7 @@
 <body id="body">
 
 <div id="svg-bg-container" aria-hidden="true">
-  <object id="svgBg" data="./bg/bgd2.svg" type="image/svg+xml"></object>
+  <object id="svgBg"  type="image/svg+xml"></object>
 </div>
 
 <nav class="navbar" >
@@ -796,7 +800,8 @@ const toggleitems = document.querySelectorAll("section, footer");
     toggleitems.forEach(titem => {
       titem.style.display = 'none';
     });
-    document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
+    
+    document.querySelectorAll('#navbars li').forEach(link => {if(!(link.contains(togglebtn))) {link.classList.remove('active'); link.style.display="none";}});
     togglebtn.innerHTML = `
       <svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
         <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -811,9 +816,10 @@ const toggleitems = document.querySelectorAll("section, footer");
         <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
         <circle cx="36" cy="12" r="9" fill="#DDDDDD"/>
       </svg>`;
-    
+    window.location.href="";
   }
 }
+
 setTimeout(()=>{
 const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id], br[id]');
@@ -834,4 +840,3 @@ const navLinks = document.querySelectorAll('.nav-link');
 </script>
 
 </html>
-
