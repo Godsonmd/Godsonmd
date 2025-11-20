@@ -802,6 +802,20 @@
             </a>
         </li>
         `;}
+        else{
+            nav_ul.innerHTML+=`
+            <li>
+            <a href="#footer" class="nav-link" data-tooltip="Footer" title="Footer">
+           <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="2" x2="12" y2="19"></line>
+    <line x1="12" y1="2" x2="20" y2="2"></line>
+    <line x1="12" y1="8" x2="16" y2="8"></line>
+    <polyline points="15 15 12 19 9 15"></polyline>
+  </svg>
+            </a>
+        </li>
+            `;
+        }
         let p2=`
                <a ${backLink} class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Projects</a> 
             </div>
@@ -899,7 +913,7 @@
         SomeHTML = p1 + p2 + p3 + p4 + p5 + p6;
         details.innerHTML += SomeHTML;
         details.innerHTML += `
-        <footer>
+        <footer id="footer">
             <div class="container">
                 <a ${backLink} class="back-link btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
                 <p>&copy; 2025 Godson M D. All Rights Reserved.</p>
@@ -1048,7 +1062,7 @@ function createClickRipple(x, y) {
   ripple.className = 'click-ripple';
   ripple.style.left = x + 'px';
   ripple.style.top = y + 'px';
-  const width="350px";
+  const width="100px";
   ripple.style.width = width;
   ripple.style.height = width;
   
