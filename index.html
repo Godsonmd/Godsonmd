@@ -943,11 +943,10 @@
 
         /* Trail effect */
         .cursor-trail {
-            position: fixed;
-            width: 6px;
-            height: 6px;
-            
-            border-radius: 50%;
+             position: fixed;
+            width: 16px;
+            height: 16px;
+            clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
             pointer-events: none;
             z-index: 9998;
             transform: translate(-50%, -50%);
