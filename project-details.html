@@ -231,7 +231,9 @@
             font-size: 2rem;
             margin: 40px 0 20px;
             color: white;
-            border-bottom: 2px solid var(--primary-blue);
+            border-width: 5px;
+            border-style: solid;
+            border-image: linear-gradient(90deg,yellow , var(--primary-blue) ,transparent 80%) 0 0 100% 0 fill;
             padding-bottom: 10px;
             display: inline-block;
         }
@@ -644,10 +646,10 @@
         /* Trail effect */
         .cursor-trail {
             position: fixed;
-            width: 6px;
-            height: 6px;
+            width: 16px;
+            height: 16px;
             
-            border-radius: 50%;
+           clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
             pointer-events: none;
             z-index: 9998;
             transform: translate(-50%, -50%);
@@ -1082,7 +1084,7 @@ const buttons=document.querySelectorAll("button,a");
                 cursor.classList.remove('hover');
             });
         });
-},2000);
+},100);
 </script>
 
 </html>
