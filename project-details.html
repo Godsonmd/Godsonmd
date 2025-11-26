@@ -580,7 +580,7 @@
             transition: transform 0.03s ease-out, background 0.05s ease;
             filter: drop-shadow(0 0 15px rgb(0, 255, 255));
             will-change: transform;
-            opacity:0;
+            
         }
 
         .cursor::before {
@@ -746,7 +746,7 @@
     </ul>
 </nav>
 </body>
-<script>
+<!-- <script>
     const svgObject = document.getElementById('svgBg');
     const filecount = 10;
     const prev =localStorage.getItem("bgid") || 7;
@@ -1085,7 +1085,362 @@ const buttons=document.querySelectorAll("button,a");
             });
         });
 },100);
+</script> -->
+<script>
+    // --- 1. CONFIGURATION & BASICS ---
+    const svgObject = document.getElementById('svgBg');
+    const filecount = 10;
+    const prev = localStorage.getItem("bgid") || 7;
+    const now = (((prev - 1) % filecount + 1) % filecount) + 1;
+    localStorage.setItem("bgid", now);
+    svgObject.data = `./bg/bgd${now}.svg`;
+    localStorage.setItem("idnow", 'projects');
+
+    let projectname = localStorage.getItem("projectname") || "sahasam";
+    document.getElementById("title").innerText = projectname.toUpperCase() + " | Godson M D Portfolio";
+
+    const details = document.getElementById('body');
+    const nav_ul = document.getElementById("navbars");
+    let backLink = "href='index.html'";
+
+    // --- 2. MAIN LOADING FUNCTION ---
+    async function loadProject(projectname) {
+        console.log("Starting loadProject..."); // Debug
+
+        try {
+            const res = await fetch(`./jsons/${projectname}.json`);
+            if (!res.ok) throw new Error('JSON not found or error: ' + res.statusText);
+            const data = await res.json();
+            
+            console.log("JSON loaded successfully"); // Debug
+
+            // --- BUILD HTML STRING ---
+            let htmlContent = '';
+
+            // 1. Header Section
+            htmlContent += `
+                <section class="project-header" id="home">
+                <div class="container">
+                    <h1 class="project-title">${data.projectHeader.title}</h1>
+                    <p class="project-subtitle">${data.projectHeader.subtitle}</p>
+                    <div class="project-links">
+                        <a href="${data.projectHeader.gitlink}" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View on GitHub</a>
+            `;
+
+            if (data.projectHeader.liveDemoLink) {
+                htmlContent += `
+                    <a href="${data.projectHeader.liveDemoLink}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                `;
+                // Add nav item
+                const demoLi = `
+                <li>
+                    <a href="#demo" class="nav-link" data-tooltip="Live Demo" title="Live Demo">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                        </svg>
+                    </a>
+                </li>`;
+                nav_ul.insertAdjacentHTML('beforeend', demoLi);
+            }
+
+            // Mobile/Desktop specific Nav
+            const isMobile = /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
+            let navExtra = '';
+            if (!isMobile) {
+                navExtra = `
+                <li>
+                    <a class="nav-link" onclick="showtoggle()" id="toggle-btn" title="For Kids">
+                        <svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="36" cy="12" r="9" fill="#DDDDDD"/>
+                        </svg>
+                    </a>
+                </li>`;
+            } else {
+                navExtra = `
+                <li>
+                    <a href="#footer" class="nav-link" data-tooltip="Footer" title="Footer">
+                   <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="2" x2="12" y2="19"></line>
+                    <line x1="12" y1="2" x2="20" y2="2"></line>
+                    <line x1="12" y1="8" x2="16" y2="8"></line>
+                    <polyline points="15 15 12 19 9 15"></polyline>
+                  </svg>
+                    </a>
+                </li>`;
+            }
+            nav_ul.insertAdjacentHTML('beforeend', navExtra);
+
+            // 2. Close Header & Start Content
+            htmlContent += `
+                        <a ${backLink} class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Projects</a> 
+                    </div>
+                </div>
+            </section>
+            <section class="project-content" >
+            <div class="container">
+                <div class="glass-card">
+                    <div class="project-image">
+                        <img src="${data.projectContent.thumbnail.src}" alt="${data.projectContent.thumbnail.alt}">
+                    </div>
+                    <section id="overview"> 
+                    <h2 class="section-title">Project Overview</h2>
+            `;
+
+            data.projectContent.projectOverview.forEach(para => {
+                htmlContent += `<p>${para}</p><br>`;
+            });
+
+            // 3. Tech Stack
+            htmlContent += `
+                    </section>
+                    <h2 class="section-title">Technology Stack</h2>
+                    <div class="tech-stack">`;
+
+            data.projectContent.technologyStack.forEach(tech => {
+                htmlContent += `
+                    <div class="tech-item">
+                        <i class="${tech.icon}"></i>
+                        <span>${tech.name}</span>
+                    </div>`;
+            });
+
+            // 4. Features
+            htmlContent += `
+                    </div>
+                    <section id="features"> 
+                    <h2 class="section-title" >Key Features</h2>
+                    <div class="features-grid">
+            `;
+
+            data.projectContent.keyFeatures.forEach(feature => {
+                htmlContent += `
+                    <div class="feature-card">
+                        <h3 class="feature-title">${feature.title}</h3>
+                        <ul class="feature-list">`;
+                feature.items.forEach(point => {
+                    htmlContent += `<li>${point}</li>`;
+                });
+                htmlContent += `
+                        </ul>
+                    </div>`;
+            });
+
+            htmlContent += `</div></section>`;
+
+            // 5. Development Process
+            htmlContent += `
+                    <section id="process"> 
+                    <h2 class="section-title" >Development Process</h2>
+            `;
+            data.projectContent.developmentProcess.forEach(para => {
+                htmlContent += `<p>${para}</p><br>`;
+            });
+
+            // 6. Screenshots
+            htmlContent += `
+                    </section>
+                    <section class="project-content" id="screenshots"> 
+                    <h2 class="section-title" >Screenshots</h2>
+                    <div class="image-gallery">
+            `;
+
+            data.projectContent.screenshots.forEach(image => {
+                htmlContent += `
+                    <div class="gallery-item">
+                        <img src="${image.src}" alt="${image.alt}">
+                    </div>`;
+            });
+            htmlContent += `</div></section>`;
+
+            // 7. Live Demo
+            if (data.projectHeader.liveDemoLink) {
+                htmlContent += `
+                    <section id="demo"> 
+                    <h2 class="section-title" >Live Demo</h2>
+                    <div class="demo-video">
+                        <iframe src="${data.projectContent.liveDemo.iframeSrc}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    </section>
+                `;
+            }
+
+            // Close Containers & Footer
+            htmlContent += `</div></div></section>`;
+            htmlContent += `
+            <footer id="footer">
+                <div class="container">
+                    <a ${backLink} class="back-link btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                    <p>&copy; 2025 Godson M D. All Rights Reserved.</p>
+                </div>
+                <br>
+            </footer>
+            `;
+
+            // --- INJECT HTML (SAFE METHOD) ---
+            // This prevents the script from being deleted by innerHTML replacement
+            details.insertAdjacentHTML('beforeend', htmlContent);
+            
+            console.log("HTML Injected"); // Debug
+
+            // --- INIT SCROLL SPY ---
+            initScrollSpy();
+
+        } catch (error) {
+            console.error('CRITICAL ERROR in loadProject:', error);
+            // Optional: Show error on screen so you know
+            details.insertAdjacentHTML('beforeend', `<h2 style="color:red; text-align:center;">Error loading project: ${error.message}</h2>`);
+        }
+    }
+
+    // --- 3. HELPER FUNCTIONS ---
+
+    function initScrollSpy() {
+        const sections = document.querySelectorAll('section[id], br[id]');
+        if(sections.length === 0) return;
+
+        const navObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.nav-link.active').forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-50% 0px -50% 0px' });
+        
+        sections.forEach(section => navObserver.observe(section));
+    }
+
+    let isToggled = false;
+    function showtoggle() {
+        const toggleitems = document.querySelectorAll("section, footer");
+        isToggled = !isToggled;
+        const togglebtn = document.getElementById('toggle-btn');
+        if (!togglebtn) return;
+
+        if (isToggled) {
+            toggleitems.forEach(titem => titem.style.display = 'none');
+            document.querySelectorAll('#navbars li').forEach(link => {
+                if (!(link.contains(togglebtn))) {
+                    link.classList.remove('active');
+                    link.style.display = "none";
+                }
+            });
+            togglebtn.innerHTML = `<svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="9" fill="#DD0000"/></svg>`;
+        } else {
+            toggleitems.forEach(titem => titem.style.display = '');
+            togglebtn.innerHTML = `<svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="12" r="9" fill="#DDDDDD"/></svg>`;
+            // window.location.href = ""; // Removed: This often causes page reload loops
+        }
+    }
+
+    // --- 4. START EXECUTION ---
+    loadProject(projectname);
+
+    // --- 5. CURSOR LOGIC (INDEPENDENT) ---
+    // Moved outside loadProject so it always runs
+    
+    // Event Delegation for hover effects
+    document.addEventListener('mouseover', (e) => {
+        if(e.target.closest('button, a, .nav-link')) {
+            const c = document.getElementById('cursor');
+            if(c) c.classList.add('hover');
+        }
+    });
+    document.addEventListener('mouseout', (e) => {
+        if(e.target.closest('button, a, .nav-link')) {
+            const c = document.getElementById('cursor');
+            if(c) c.classList.remove('hover');
+        }
+    });
+
+    const cursorpoint = document.getElementById('cursor');
+    const isMobileCheck = /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
+
+    if (isMobileCheck && cursorpoint) {
+        cursorpoint.style.display = "none";
+    }
+
+    if (!isMobileCheck) {
+        let mouseX = 0, mouseY = 0;
+        let trailCount = 0;
+        const maxTrails = 10;
+        let ticking = false;
+
+        function updateCursor() {
+            if(cursorpoint) cursorpoint.style.transform = `translate3d(${mouseX - 10}px, ${mouseY - 10}px, 0)`;
+            ticking = false;
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!ticking) {
+                requestAnimationFrame(updateCursor);
+                ticking = true;
+            }
+            if (trailCount < maxTrails) {
+                createTrail(mouseX, mouseY);
+            }
+        });
+
+        function createTrail(x, y) {
+            if (Math.random() > 0.8) return;
+            const colors = ['red', 'aqua', 'blue', 'yellow', 'purple', 'white'];
+            trailCount++;
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.willChange = 'transform, opacity';
+            trail.style.background = colors[(Math.floor(Math.random() * 100) % 6)];
+            trail.style.left = x + 'px';
+            trail.style.top = y + 'px';
+            document.body.appendChild(trail);
+
+            let opacity = 1;
+            let scale = 1;
+
+            const animate = () => {
+                opacity -= 0.05;
+                scale -= 0.05;
+                if (opacity <= 0) {
+                    trail.remove();
+                    trailCount--;
+                    return;
+                }
+                trail.style.opacity = opacity;
+                trail.style.transform = `translate3d(-50%, -50%, 0) scale(${scale})`;
+                requestAnimationFrame(animate);
+            };
+            requestAnimationFrame(animate);
+        }
+
+        document.addEventListener('mousedown', (e) => {
+            if(cursorpoint) cursorpoint.classList.add('click');
+            createClickRipple(e.clientX, e.clientY);
+        });
+
+        document.addEventListener('mouseup', () => {
+            if(cursorpoint) cursorpoint.classList.remove('click');
+        });
+
+        document.addEventListener('mouseleave', () => { if(cursorpoint) cursorpoint.style.opacity = '0'; });
+        document.addEventListener('mouseenter', () => { if(cursorpoint) cursorpoint.style.opacity = '1'; });
+
+        function createClickRipple(x, y) {
+            const ripple = document.createElement('div');
+            ripple.className = 'click-ripple';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.width = "200px";
+            ripple.style.height = "200px";
+            document.body.appendChild(ripple);
+            setTimeout(() => {
+                if (ripple.parentNode) ripple.remove();
+            }, 600);
+        }
+    }
 </script>
-
 </html>
-
