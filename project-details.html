@@ -1333,7 +1333,7 @@ const buttons=document.querySelectorAll("button,a");
         } else {
             toggleitems.forEach(titem => titem.style.display = '');
             togglebtn.innerHTML = `<svg viewBox="-15 0 75 24" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="46" height="22" rx="11" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="12" r="9" fill="#DDDDDD"/></svg>`;
-            // window.location.href = ""; // Removed: This often causes page reload loops
+            window.location.href = ""; // Removed: This often causes page reload loops
         }
     }
 
@@ -1444,3 +1444,4 @@ const buttons=document.querySelectorAll("button,a");
     }
 </script>
 </html>
+
