@@ -876,7 +876,7 @@
             z-index: 9999;
             transform: translate(-50%, -50%);
             transition: transform 0.03s ease-out, background 0.05s ease;
-            filter: drop-shadow(0 0 15px rgba(255, 0, 0));
+            filter: drop-shadow(0 0 15px rgb(255, 0, 0));
             will-change: transform;
             opacity: 0;
         }
@@ -888,7 +888,7 @@
             left: 50%;
             width: 40px;
             height: 40px;
-            border: 2px solid #fff;
+            border: 2px solid rgb(255, 255, 255);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             animation: cursorPulse 2s infinite ease-in-out;
@@ -1317,6 +1317,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 function openproject(link) {
   localStorage.setItem('projectname', link);
   localStorage.setItem("idnow", 'projects');
+  const b3d = Math.random() < 0.5; 
+  if(!b3d)
+  window.open('project_details.html', '_self');
+  else
   window.open('project-details.html', '_self');
 }
 
@@ -1708,6 +1712,3 @@ function minmax(){
 </body>
 
 </html>
-
-
-
