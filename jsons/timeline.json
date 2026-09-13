@@ -6,24 +6,24 @@
       "description": "Co-founded Neuva Innovations LLP and lead the technical development of software solutions for clients and student projects. Developed an internal Expense and Fund Management web application for Kavone using HTML, CSS, JavaScript, and AWS services. Worked with AWS Lambda, S3, SQS, and DynamoDB to build cloud-based web applications."
     },
     {
-      "title": "B.Tech in Computer Science Engineering – Thejus Engineering College, Thrissur, Kerala",
-      "period": "October 2022 – April 2026",
-      "description": "Completed a comprehensive curriculum in Computer Science covering programming, algorithms, databases, networks, and software development. Actively involved in projects, coding communities, and collaborative learning experiences to build strong technical and problem-solving skills."
-    },
-    {
-      "title": "Tech Lead – ISTE Student Chapter",
-      "period": "Thejus Engineering College | 2024 – 2026",
-      "description": "Leading the student chapter on campus with over 200+ active members, coordinating multiple technical events including coding competitions and workshops, and fostering a culture of learning and innovation. Successfully organized technical events and mentored junior students in their career development."
+      "title": "Tech Lead – µLearn",
+      "period": "July 2025 – April 2026",
+      "description": "Representing the µLearn tech programs on campus by organizing tech meetups and workshops. Helping fellow students upskill through structured learning paths and fostering a strong community network for knowledge sharing."
     },
     {
       "title": "Developer Intern – Narrowlabs",
-      "period": "May 2025 – October 2025",
+      "period": "June 2025 – November 2025",
       "description": "Worked on real-world software solutions involving frontend development, backend APIs using Python, and AWS cloud integration. Contributed to multiple projects, including serverless applications, a Resume Storage System, and an internal Ticketing System."
     },
     {
-      "title": "Tech Lead – µLearn",
-      "period": "July 2025 – Present",
-      "description": "Representing the µLearn tech programs on campus by organizing tech meetups and workshops. Helping fellow students upskill through structured learning paths and fostering a strong community network for knowledge sharing."
+      "title": "Tech Lead – ISTE Student Chapter",
+      "period": "July 2024 – April 2026",
+      "description": "Leading the student chapter on campus with over 200+ active members, coordinating multiple technical events including coding competitions and workshops, and fostering a culture of learning and innovation. Successfully organized technical events and mentored junior students in their career development."
+    },
+    {
+      "title": "B.Tech in Computer Science Engineering – Thejus Engineering College, Thrissur, Kerala",
+      "period": "October 2022 – April 2026",
+      "description": "Completed a comprehensive curriculum in Computer Science covering programming, algorithms, databases, networks, and software development. Actively involved in projects, coding communities, and collaborative learning experiences to build strong technical and problem-solving skills."
     }
   ]
 }
