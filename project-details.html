@@ -1108,7 +1108,7 @@ const buttons=document.querySelectorAll("button,a");
         console.log("Starting loadProject..."); // Debug
 
         try {
-            const res = await fetch(`./jsons/${projectname}.json`);
+            const res = await fetch(`./jsons/${projectname}.json?v=${Date.now()}`);
             if (!res.ok) throw new Error('JSON not found or error: ' + res.statusText);
             const data = await res.json();
             
