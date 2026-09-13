@@ -1046,13 +1046,52 @@
                 <img src="./images/profile.jpg" alt="Godson M D">
             </div>
             <div class="about-text">
-                <div class="about-description">
-                <p>Hello! I'm Godson M D, a final-year Computer Science Engineering student who loves building end-to-end products  from UX and frontend to backend and cloud. I focus on full-stack Python development (Django/Flask) and modern web tooling, and I enjoy turning ideas into polished, user-facing applications.</p>
-                <br>
-                <p>I translated these skills into a professional setting during my 6-month internship at NarrowLabs Technologies, where I built a diverse portfolio including serverless AI chatbots using AWS Bedrock, a client-facing web game, and critical upgrades for internal ticketing systems. This experience solidified my ability to use modern tools, like AI and serverless architecture, to build efficient and intelligent solutions.</p>
-                <br>
-                <p>Outside of projects, I'm a competitive problem-solver (winner at HackHarvest and Algoquest) who enjoys leading teams and mentoring peers. I’m seeking challenging roles where I can combine full-stack engineering, cloud infrastructure, and AI to build efficient, intelligent products end-to-end.</p>
-                </div>
+                
+<div class="about-description">
+    <p>
+        Hello! I'm Godson M D, a Computer Science Engineering graduate
+        and Co-Founder & CTO of Neuva Innovations LLP. I love building
+        end-to-end products, from UX and frontend to backend and cloud.
+        I focus on full-stack Python development (Django/Flask),
+        modern web tooling, and Generative AI, and I enjoy turning
+        ideas into polished, user-facing applications.
+    </p>
+
+    <br>
+
+    <p>
+        I gained professional experience during my 6-month internship
+        at NarrowLabs Technologies, where I built a diverse portfolio
+        including serverless AI chatbots using AWS Bedrock, a
+        client-facing web game, and critical upgrades for internal
+        ticketing systems. This experience strengthened my ability
+        to use modern technologies, including AI and serverless
+        architecture, to build efficient and intelligent solutions.
+    </p>
+
+    <br>
+
+    <p>
+        As the Co-Founder & CTO of Neuva Innovations LLP, I lead the
+        technical development of software solutions for clients and
+        student projects. I developed an internal Expense and Fund
+        Management web application for Kavone using HTML, CSS,
+        JavaScript, and AWS services. I also work with cloud
+        technologies such as AWS Lambda, S3, SQS, and DynamoDB
+        to build scalable web applications.
+    </p>
+
+    <br>
+
+    <p>
+        Outside of projects, I'm a competitive problem-solver,
+        with wins at HackHarvest and Algoquest, who enjoys leading
+        teams and mentoring peers. I'm seeking challenging roles
+        where I can combine full-stack engineering, cloud
+        infrastructure, and AI to build efficient, intelligent
+        products end-to-end.
+    </p>
+</div>
                 <div class="project-tech" style="margin-top: 3vh;">
                   <span class="tech-tag">Python</span>
                   <span class="tech-tag">Django</span>
@@ -1285,8 +1324,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const [timelineRes, projectRes] = await Promise.all([
-      fetch('./jsons/timeline.json').then(r => r.json()),
-      fetch('./jsons/projects.json').then(r => r.json())
+      fetch(`./jsons/timeline.json?v=${Date.now()}`).then(r => r.json()),
+      fetch(`./jsons/projects.json?v=${Date.now()}`).then(r => r.json())
     ]);
 
     if (exp) exp.innerHTML += buildHTML(timelineRes.timeline, 'timeline');
